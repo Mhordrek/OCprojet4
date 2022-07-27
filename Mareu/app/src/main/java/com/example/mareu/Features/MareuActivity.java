@@ -1,10 +1,12 @@
-package com.example.mareu;
+package com.example.mareu.Features;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class MareuActivity extends AppCompatActivity {
+import com.example.mareu.R;
+
+public class MareuActivity extends AppCompatActivity implements Mareu.View {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

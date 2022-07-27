@@ -6,6 +6,9 @@
         <entry key="..\:/Users/sebre/Documents/OCprojets/OCprojet4/Mareu/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.275" />
         <entry key="..\:/Users/sebre/Documents/OCprojets/OCprojet4/Mareu/app/src/main/res/drawable/ic_launcher_background.xml" value="0.275" />
         <entry key="..\:/Users/sebre/Documents/OCprojets/OCprojet4/Mareu/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/sebre/Documents/OCprojets/OCprojet4/Mareu/app/src/main/res/layout/activity_mareu.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/sebre/Documents/OCprojets/OCprojet4/Mareu/app/src/main/res/layout/fragment_mareu.xml" value="0.26268115942028986" />
+        <entry key="..\:/Users/sebre/Documents/OCprojets/OCprojet4/Mareu/app/src/main/res/layout/fragment_mareu_list.xml" value="0.26268115942028986" />
       </map>
     </option>
   </component>
