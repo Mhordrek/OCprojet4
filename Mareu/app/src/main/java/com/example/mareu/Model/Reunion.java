@@ -1,6 +1,6 @@
 package com.example.mareu.Model;
 
-public class MareuReunion {
+public class Reunion {
 
 private int id;
 
@@ -13,7 +13,7 @@ private String subject;
 private String attendees;
 
 
-    public MareuReunion(int id, String date, String location, String subject, String attendees) {
+    public Reunion(int id, String date, String location, String subject, String attendees) {
         this.id = id;
         this.date = date;
         this.location = location;
