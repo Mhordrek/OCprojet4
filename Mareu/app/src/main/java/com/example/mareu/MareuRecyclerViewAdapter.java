@@ -29,8 +29,14 @@ public class MareuRecyclerViewAdapter extends RecyclerView.Adapter<MareuRecycler
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
+
         Reunion reunion = mValues.get(position);
-        holder.mContentView.setText(mValues.get(position).getSubject());
+        holder.mSubjectView.setText(mValues.get(position).getSubject());
+        holder.mDateView.setText(mValues.get(position).getDate());
+        holder.mLocationView.setText(mValues.get(position).getLocation());
+        holder.mAttendeesView.setText(mValues.get(position).getAttendees());
+
+
     }
 
     @Override
@@ -40,18 +46,24 @@ public class MareuRecyclerViewAdapter extends RecyclerView.Adapter<MareuRecycler
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        public final TextView mContentView;
+        public final TextView mSubjectView;
+        private final TextView mDateView;
+        private final TextView mLocationView;
+        private final TextView mAttendeesView;
 
 
         public ViewHolder(FragmentMareuBinding binding) {
             super(binding.getRoot());
 
-            mContentView = binding.itemListName;
+            mSubjectView = binding.itemListReunion;
+            mDateView = binding.itemListDate;
+            mLocationView = binding.itemListLocation;
+            mAttendeesView = binding.itemListAttendees;
         }
 
         @Override
         public String toString() {
-            return super.toString() + " '" + mContentView.getText() + "'";
+            return super.toString() + " '" + mSubjectView.getText() + "'";
         }
     }
 }

@@ -25,7 +25,7 @@ private String attendees;
         return id;
     }
 
-    public String getTime() {
+    public String getDate() {
         return date;
     }
 
@@ -37,7 +37,7 @@ private String attendees;
         return subject;
     }
 
-    public String getUsermail() {
+    public String getAttendees() {
         return attendees;
     }
 
@@ -45,8 +45,8 @@ private String attendees;
         this.id = id;
     }
 
-    public void setTime(String time) {
-        this.date = time;
+    public void setDate(String time) {
+        this.date = date;
     }
 
     public void setLocation(String location) {
@@ -57,7 +57,7 @@ private String attendees;
         this.subject = subject;
     }
 
-    public void setUsermail(String usermail) {
+    public void setAttendees(String usermail) {
         this.attendees = usermail;
     }
 }

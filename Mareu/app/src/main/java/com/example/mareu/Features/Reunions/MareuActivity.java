@@ -16,6 +16,7 @@ import java.util.List;
 public class MareuActivity extends AppCompatActivity implements Mareu.View { RecyclerView list;
     MareuRecyclerViewAdapter adapter;
     private MareuPresenter mPresenter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
