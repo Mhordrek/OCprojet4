@@ -1,26 +1,24 @@
 package com.example.mareu.Features.Reunions;
 
-import com.example.mareu.Features.Reunions.Mareu;
-import com.example.mareu.Features.Reunions.MareuModel;
 import com.example.mareu.Model.Reunion;
 
 import java.util.List;
 
-public class MareuPresenter implements Mareu.Presenter{
+public class ReunionPresenter implements Mareu.Presenter{
 
-    private Mareu.View mTvShowsView;
+    private Mareu.View mReunionView;
 
-    public MareuPresenter(Mareu.View mTvShowsView) {
-        attachView(mTvShowsView);
+    public ReunionPresenter(Mareu.View mReunionView) {
+        attachView(mReunionView);
     }
 
     @Override
     public void attachView(Mareu.View view) {
-        mTvShowsView = view;
+        mReunionView = view;
     }
 
     @Override
     public List<Reunion> loadReunions() {
-        return MareuModel.getInstance().getReunions();
+        return ReunionModel.getInstance().getReunions();
     }
 }

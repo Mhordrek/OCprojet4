@@ -5,11 +5,11 @@ import com.example.mareu.Model.Reunion;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MareuModel implements Mareu.Model{
+public class ReunionModel implements Mareu.Model{
 
     List<Reunion> reunions = new ArrayList<Reunion>();
-    private static MareuModel  instance = null;
-    protected MareuModel(){
+    private static ReunionModel instance = null;
+    protected ReunionModel(){
 
         int id = 1;
         String date = "14h00";
@@ -95,9 +95,9 @@ public class MareuModel implements Mareu.Model{
 
     }
 
-    public static MareuModel getInstance() {
+    public static ReunionModel getInstance() {
         if(instance == null) {
-            instance = new MareuModel();
+            instance = new ReunionModel();
         }
         return instance;
     }

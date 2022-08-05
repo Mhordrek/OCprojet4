@@ -7,21 +7,22 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
-import com.example.mareu.MareuRecyclerViewAdapter;
+import com.example.mareu.Utils.MareuRecyclerViewAdapter;
 import com.example.mareu.Model.Reunion;
 import com.example.mareu.R;
 
 import java.util.List;
 
-public class MareuActivity extends AppCompatActivity implements Mareu.View { RecyclerView list;
+public class ReunionActivityList extends AppCompatActivity implements Mareu.View { RecyclerView list;
     MareuRecyclerViewAdapter adapter;
-    private MareuPresenter mPresenter;
+    private ReunionPresenter mPresenter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_mareu_list);
-        mPresenter = new MareuPresenter(this);
+        setContentView(R.layout.activity_reunion_list);
+        mPresenter = new ReunionPresenter(this);
         list=(RecyclerView) findViewById(R.id.list);
         list.setLayoutManager(new LinearLayoutManager(this));
         list.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
@@ -37,4 +38,7 @@ public class MareuActivity extends AppCompatActivity implements Mareu.View { Rec
         list.setAdapter(adapter);
 
     }
+
+
+
 }
