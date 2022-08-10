@@ -10,6 +10,7 @@ import java.util.List;
 public interface Mareu {
 
     interface View extends Mvp.View{
+
         void showReunions(List<Reunion> shows);
     }
 

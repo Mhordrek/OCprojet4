@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.example.mareu.Model.Reunion;
 import com.example.mareu.databinding.ActivityReunionListBinding;
-
+import com.example.mareu.databinding.RowReunionBinding;
 
 
 import java.util.List;
@@ -22,6 +22,7 @@ public class MareuRecyclerViewAdapter extends RecyclerView.Adapter<MareuRecycler
 
     private final List<Reunion> mValues;
 
+
     public MareuRecyclerViewAdapter(List<Reunion> items) {
         mValues = items;
     }
@@ -29,7 +30,7 @@ public class MareuRecyclerViewAdapter extends RecyclerView.Adapter<MareuRecycler
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        return new ViewHolder(ActivityReunionListBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
+        return new ViewHolder(RowReunionBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
 
     }
 
@@ -68,7 +69,7 @@ public class MareuRecyclerViewAdapter extends RecyclerView.Adapter<MareuRecycler
         public final ImageButton mDeleteView;
 
 
-        public ViewHolder(@NonNull ActivityReunionListBinding binding) {
+        public ViewHolder(@NonNull RowReunionBinding binding) {
             super(binding.getRoot());
 
             mAvatarView = binding.itemListAvatar;
