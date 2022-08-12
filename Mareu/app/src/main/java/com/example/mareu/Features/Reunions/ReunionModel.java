@@ -106,4 +106,12 @@ public class ReunionModel implements Mareu.Model{
     public List<Reunion> getReunions() {
         return reunions;
     }
+
+    @Override
+    public void addReunion(Reunion reunion) {
+        reunions.add(reunion);
+    }
+
+
+
 }

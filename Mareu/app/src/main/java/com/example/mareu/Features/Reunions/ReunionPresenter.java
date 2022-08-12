@@ -21,4 +21,6 @@ public class ReunionPresenter implements Mareu.Presenter{
     public List<Reunion> loadReunions() {
         return ReunionModel.getInstance().getReunions();
     }
+
+
 }

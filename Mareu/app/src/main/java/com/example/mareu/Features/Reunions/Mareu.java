@@ -1,7 +1,5 @@
 package com.example.mareu.Features.Reunions;
 
-import androidx.annotation.NonNull;
-
 import com.example.mareu.Base.Mvp;
 import com.example.mareu.Model.Reunion;
 
@@ -16,10 +14,13 @@ public interface Mareu {
 
     interface Model extends Mvp.Model{
         List<Reunion> getReunions();
+        void addReunion(Reunion reunion);
+
     }
 
     interface Presenter extends Mvp.Presenter<View>{
         List<Reunion> loadReunions();
+
 
     }
 

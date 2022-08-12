@@ -11,7 +11,9 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.mareu.Features.Reunions.Mareu;
 import com.example.mareu.Model.Reunion;
+import com.example.mareu.R;
 import com.example.mareu.databinding.ActivityReunionListBinding;
 import com.example.mareu.databinding.RowReunionBinding;
 
@@ -20,11 +22,12 @@ import java.util.List;
 
 public class MareuRecyclerViewAdapter extends RecyclerView.Adapter<MareuRecyclerViewAdapter.ViewHolder> {
 
-    private final List<Reunion> mValues;
+    private List<Reunion> mReunions;
+    Mareu.Model mModel;
 
 
     public MareuRecyclerViewAdapter(List<Reunion> items) {
-        mValues = items;
+        mReunions = items;
     }
 
     @Override
@@ -38,15 +41,35 @@ public class MareuRecyclerViewAdapter extends RecyclerView.Adapter<MareuRecycler
     public void onBindViewHolder(final ViewHolder holder, int position) {
 
 
-        Reunion reunion = mValues.get(position);
-        holder.mAvatarView.getContext();
-        holder.mSubjectView.setText(mValues.get(position).getSubject());
-        holder.mDateView.setText(mValues.get(position).getDate());
-        holder.mLocationView.setText(mValues.get(position).getLocation());
-        holder.mAttendeesView.setText(mValues.get(position).getAttendees());
+        Reunion reunion = mReunions.get(position);
+
+            switch (reunion.getLocation()){
+
+                case "Mario": holder.mAvatarView.setImageResource(R.drawable.red_circle);
+                break;
+
+                case "Luigi": holder.mAvatarView.setImageResource(R.drawable.green_circle);
+                break;
+
+                case "Peach": holder.mAvatarView.setImageResource(R.drawable.salmon_circle);
+                break;
+
+                case "Browser": holder.mAvatarView.setImageResource(R.drawable.purple_circle);
+                break;
+
+            }
+
+
+        holder.mSubjectView.setText(reunion.getSubject());
+        holder.mDateView.setText(reunion.getDate());
+        holder.mLocationView.setText(reunion.getLocation());
+        holder.mAttendeesView.setText(reunion.getAttendees());
         holder.mDeleteView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int reunionPosition = reunion.getId();
+                mReunions.remove(reunionPosition);
+                initList();
 
             }
         });
@@ -54,9 +77,14 @@ public class MareuRecyclerViewAdapter extends RecyclerView.Adapter<MareuRecycler
 
     }
 
+    private void initList(){
+
+        mReunions = mModel.getReunions();
+    }
+
     @Override
     public int getItemCount() {
-        return mValues.size();
+        return mReunions.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

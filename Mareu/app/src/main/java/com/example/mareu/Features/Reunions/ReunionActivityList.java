@@ -1,6 +1,5 @@
 package com.example.mareu.Features.Reunions;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -8,14 +7,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 import android.widget.Toolbar;
 
-import com.example.mareu.Features.AddReunion.AddReunion;
+import com.example.mareu.Features.AddReunion.AddReunionActivity;
 import com.example.mareu.Utils.MareuRecyclerViewAdapter;
 import com.example.mareu.Model.Reunion;
 import com.example.mareu.R;
@@ -46,8 +41,8 @@ public class ReunionActivityList extends AppCompatActivity implements Mareu.View
         mFloatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent fabintent = new Intent(getApplicationContext(),AddReunion.class);
-                startActivity(fabintent);
+                Intent fabIntent = new Intent(getApplicationContext(), AddReunionActivity.class);
+                startActivity(fabIntent);
             }
         });
 
