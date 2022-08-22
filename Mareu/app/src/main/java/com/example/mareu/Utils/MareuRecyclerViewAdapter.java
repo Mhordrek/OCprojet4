@@ -7,11 +7,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.mareu.Features.Reunions.Mareu;
+import com.example.mareu.Features.Reunions.ReunionActivityList;
+import com.example.mareu.Features.Reunions.ReunionModel;
+import com.example.mareu.Features.Reunions.ReunionPresenter;
 import com.example.mareu.Model.Reunion;
 import com.example.mareu.R;
 import com.example.mareu.databinding.ActivityReunionListBinding;
@@ -23,7 +27,7 @@ import java.util.List;
 public class MareuRecyclerViewAdapter extends RecyclerView.Adapter<MareuRecyclerViewAdapter.ViewHolder> {
 
     private List<Reunion> mReunions;
-    Mareu.Model mModel;
+
 
 
     public MareuRecyclerViewAdapter(List<Reunion> items) {
@@ -67,9 +71,10 @@ public class MareuRecyclerViewAdapter extends RecyclerView.Adapter<MareuRecycler
         holder.mDeleteView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int reunionPosition = reunion.getId();
-                mReunions.remove(reunionPosition);
-                initList();
+
+                ReunionModel.getInstance().removeReunion(reunion);
+                notifyDataSetChanged();
+
 
             }
         });
@@ -77,10 +82,7 @@ public class MareuRecyclerViewAdapter extends RecyclerView.Adapter<MareuRecycler
 
     }
 
-    private void initList(){
 
-        mReunions = mModel.getReunions();
-    }
 
     @Override
     public int getItemCount() {

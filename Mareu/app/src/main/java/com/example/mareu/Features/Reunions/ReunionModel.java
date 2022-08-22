@@ -112,6 +112,10 @@ public class ReunionModel implements Mareu.Model{
         reunions.add(reunion);
     }
 
+    @Override
+    public void removeReunion(Reunion reunion) {
+        reunions.remove(reunion);
+    }
 
 
 }

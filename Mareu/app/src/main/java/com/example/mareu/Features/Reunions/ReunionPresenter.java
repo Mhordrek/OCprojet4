@@ -22,5 +22,10 @@ public class ReunionPresenter implements Mareu.Presenter{
         return ReunionModel.getInstance().getReunions();
     }
 
+    @Override
+    public void removeReunion(Reunion reunion) {
+        ReunionModel.getInstance().removeReunion(reunion);
+    }
+
 
 }

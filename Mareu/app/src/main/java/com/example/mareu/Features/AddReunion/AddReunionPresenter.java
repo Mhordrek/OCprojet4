@@ -20,6 +20,7 @@ public class AddReunionPresenter implements AddReu.Presenter{
 
         mAddReunionView = view;
 
+
     }
 
     @Override

@@ -15,11 +15,13 @@ public interface Mareu {
     interface Model extends Mvp.Model{
         List<Reunion> getReunions();
         void addReunion(Reunion reunion);
+        void removeReunion(Reunion reunion);
 
     }
 
     interface Presenter extends Mvp.Presenter<View>{
         List<Reunion> loadReunions();
+        void removeReunion(Reunion reunion);
 
 
     }
