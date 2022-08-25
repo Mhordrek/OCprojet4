@@ -16,6 +16,7 @@ public interface AddReu {
     interface Presenter extends Mvp.Presenter<View>{
 
         void addReunion(Reunion reunion);
+        List<Reunion> loadReunions();
 
     }
 

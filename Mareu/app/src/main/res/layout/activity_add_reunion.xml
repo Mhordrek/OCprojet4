@@ -45,52 +45,72 @@
                 android:hint="Sujet" />
         </com.google.android.material.textfield.TextInputLayout>
 
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/rDate"
+        <TextView
+            android:id="@+id/textviewdatepicker"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="20dp">
+            android:text="Choisissez une date"
+            android:textSize="20sp"
+            android:layout_marginTop="40dp"
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:hint="Date" />
-        </com.google.android.material.textfield.TextInputLayout>
+            ></TextView>
 
+        <Button
+            android:id="@+id/datespinnerbutton"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:text="Jan 01 2022"
+            android:textSize="20sp"
+            style="?android:spinnerStyle"
+            android:onClick="openDatePicker"
+            android:paddingLeft="30dp"
+            ></Button>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/rLocation"
+        <TextView
+        android:id="@+id/textviewspinner"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Choisissez une salle"
+        android:textSize="20sp"
+        android:layout_marginTop="40dp"
+
+        ></TextView>
+
+        <Spinner
+            android:id="@+id/spinnerlocation"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="20dp">
+            />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:hint="Lieu" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/rAttendees"
+        <TextView
+            android:id="@+id/textviewattendees"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="20dp">
+            android:text="Participant(s)"
+            android:textSize="20sp"
+            android:layout_marginTop="40dp"
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:hint="Participant(s)" />
+            ></TextView>
 
-        </com.google.android.material.textfield.TextInputLayout>
+        <MultiAutoCompleteTextView
+            android:id="@+id/multiAutoCompleteTextView"
+            android:layout_width="match_parent"
+            android:layout_height="51dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
         <Button
             android:id="@+id/validationbutton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Valider"
-            android:layout_marginTop="60dp"/>
+            android:layout_marginTop="10dp"/>
 
     </LinearLayout>
 

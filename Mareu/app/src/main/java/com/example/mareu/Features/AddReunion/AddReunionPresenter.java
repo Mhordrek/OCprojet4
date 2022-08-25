@@ -28,4 +28,9 @@ public class AddReunionPresenter implements AddReu.Presenter{
 
         ReunionModel.getInstance().addReunion(reunion);
     }
+
+    @Override
+    public List<Reunion> loadReunions() {
+        return ReunionModel.getInstance().getReunions();
+    }
 }

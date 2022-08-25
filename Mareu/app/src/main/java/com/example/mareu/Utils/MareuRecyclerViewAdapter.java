@@ -18,9 +18,12 @@ import com.example.mareu.Features.Reunions.ReunionModel;
 import com.example.mareu.Features.Reunions.ReunionPresenter;
 import com.example.mareu.Model.Reunion;
 import com.example.mareu.R;
+import com.example.mareu.Utils.Event.DeleteReunionEvent;
 import com.example.mareu.databinding.ActivityReunionListBinding;
 import com.example.mareu.databinding.RowReunionBinding;
 
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.List;
 
@@ -72,8 +75,7 @@ public class MareuRecyclerViewAdapter extends RecyclerView.Adapter<MareuRecycler
             @Override
             public void onClick(View view) {
 
-                ReunionModel.getInstance().removeReunion(reunion);
-                notifyDataSetChanged();
+                EventBus.getDefault().post(new DeleteReunionEvent(reunion));
 
 
             }
