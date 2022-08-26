@@ -70,9 +70,9 @@ public class AddReunionActivity extends AppCompatActivity implements AddReu.View
 
                 Reunion newReunion = new Reunion(
                         (int) System.currentTimeMillis(),
-                        rSubject,
                         rDate,
                         rLocation,
+                        rSubject,
                         rAttendees);
 
 

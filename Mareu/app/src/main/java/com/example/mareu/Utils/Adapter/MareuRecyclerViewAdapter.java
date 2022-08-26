@@ -1,25 +1,19 @@
 
-package com.example.mareu.Utils;
+package com.example.mareu.Utils.Adapter;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.mareu.Features.Reunions.Mareu;
-import com.example.mareu.Features.Reunions.ReunionActivityList;
-import com.example.mareu.Features.Reunions.ReunionModel;
-import com.example.mareu.Features.Reunions.ReunionPresenter;
 import com.example.mareu.Model.Reunion;
 import com.example.mareu.R;
 import com.example.mareu.Utils.Event.DeleteReunionEvent;
-import com.example.mareu.databinding.ActivityReunionListBinding;
 import com.example.mareu.databinding.RowReunionBinding;
 
 
@@ -49,6 +43,7 @@ public class MareuRecyclerViewAdapter extends RecyclerView.Adapter<MareuRecycler
 
 
         Reunion reunion = mReunions.get(position);
+            Log.d("Test","Location: " + reunion.getLocation());
 
             switch (reunion.getLocation()){
 
@@ -101,7 +96,7 @@ public class MareuRecyclerViewAdapter extends RecyclerView.Adapter<MareuRecycler
         public final ImageButton mDeleteView;
 
 
-        public ViewHolder(@NonNull RowReunionBinding binding) {
+        public ViewHolder(RowReunionBinding binding) {
             super(binding.getRoot());
 
             mAvatarView = binding.itemListAvatar;

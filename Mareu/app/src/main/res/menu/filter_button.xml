@@ -7,13 +7,13 @@
     <item
         android:id="@+id/filter_button_date"
         android:title="Date"
-        android:contentDescription="More"
-        app:showAsAction="never"/>
+        android:contentDescription="Date"
+        />
 
     <item
         android:id="@+id/filter_button_location"
         android:title="Salle"
-        android:contentDescription="More"
-        app:showAsAction="never"/>
+        android:contentDescription="Salle"
+        />
 
 </menu>
