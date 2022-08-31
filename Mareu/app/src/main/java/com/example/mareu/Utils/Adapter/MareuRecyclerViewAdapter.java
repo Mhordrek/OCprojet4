@@ -62,8 +62,8 @@ public class MareuRecyclerViewAdapter extends RecyclerView.Adapter<MareuRecycler
             }
 
 
-        holder.mSubjectView.setText(reunion.getSubject());
-        holder.mDateView.setText(reunion.getDate());
+        holder.mSubjectView.setText(reunion.getSubject()+" -");
+        holder.mDateView.setText(reunion.getDate()+" -");
         holder.mLocationView.setText(reunion.getLocation());
         holder.mAttendeesView.setText(reunion.getAttendees());
         holder.mDeleteView.setOnClickListener(new View.OnClickListener() {

@@ -12,7 +12,7 @@ public class ReunionModel implements Mareu.Model{
     protected ReunionModel(){
 
         int id = 1;
-        String date = "14h00";
+        String date = "AUG 25 2022";
         String location = "Peach" ;
         String subject = "Réunion A";
         String attendees = "amandine@lamzone.com,luc@lamzone.com,maxime@lamzone.com,paul@lamzone.com";
@@ -20,7 +20,7 @@ public class ReunionModel implements Mareu.Model{
         reunions.add(reunion1);
 
         int id2 = 2;
-        String date2 = "16h00";
+        String date2 = "JAN 13 2022";
         String location2 = "Mario" ;
         String subject2 = "Réunion B";
         String attendees2 = "amandine@lamzone.com,luc@lamzone.com,maxime@lamzone.com,paul@lamzone.com";
@@ -28,7 +28,7 @@ public class ReunionModel implements Mareu.Model{
         reunions.add(reunion2);
 
         int id3 = 3;
-        String date3 = "19h00";
+        String date3 = "MAR 5 2022";
         String location3 = "Luigi";
         String subject3 = "Réunion C";
         String attendees3 = "amandine@lamzone.com,luc@lamzone.com,maxime@lamzone.com,paul@lamzone.com";
@@ -36,7 +36,7 @@ public class ReunionModel implements Mareu.Model{
         reunions.add(reunion3);
 
         int id4 = 4;
-        String date4 = "09h00";
+        String date4 = "DEC 11 2021";
         String location4 = "Browser";
         String subject4 = "Réunion D";
         String attendees4 = "amandine@lamzone.com,luc@lamzone.com,maxime@lamzone.com,paul@lamzone.com";
@@ -44,7 +44,7 @@ public class ReunionModel implements Mareu.Model{
         reunions.add(reunion4);
 
         int id5 = 5;
-        String date5 = "16h30";
+        String date5 = "JUN 15 2022";
         String location5 = "Peach";
         String subject5 = "Réunion E";
         String attendees5 = "amandine@lamzone.com,luc@lamzone.com,maxime@lamzone.com,paul@lamzone.com";
@@ -52,7 +52,7 @@ public class ReunionModel implements Mareu.Model{
         reunions.add(reunion5);
 
         int id6 = 6;
-        String date6 = "08h30";
+        String date6 = "AUG 25 2022";
         String location6 = "Mario";
         String subject6 = "Réunion F";
         String attendees6 = "amandine@lamzone.com,luc@lamzone.com,maxime@lamzone.com,paul@lamzone.com";
@@ -60,7 +60,7 @@ public class ReunionModel implements Mareu.Model{
         reunions.add(reunion6);
 
         int id7 = 7;
-        String date7 = "17h00";
+        String date7 = "JUL 2 2022";
         String location7 = "Luigi";
         String subject7 = "Réunion G";
         String attendees7 = "amandine@lamzone.com,luc@lamzone.com,maxime@lamzone.com,paul@lamzone.com";
@@ -68,7 +68,7 @@ public class ReunionModel implements Mareu.Model{
         reunions.add(reunion7);
 
         int id8 = 8;
-        String date8 = "10h00";
+        String date8 = "AUG 11 2022";
         String location8 = "Browser";
         String subject8 = "Réunion H";
         String attendees8 = "amandine@lamzone.com,luc@lamzone.com,maxime@lamzone.com,paul@lamzone.com";
@@ -76,7 +76,7 @@ public class ReunionModel implements Mareu.Model{
         reunions.add(reunion8);
 
         int id9 = 9;
-        String date9 = "10h30";
+        String date9 = "APR 18 2022";
         String location9 = "Peach";
         String subject9 = "Réunion I";
         String attendees9 = "amandine@lamzone.com,luc@lamzone.com,maxime@lamzone.com,paul@lamzone.com";
@@ -84,7 +84,7 @@ public class ReunionModel implements Mareu.Model{
         reunions.add(reunion9);
 
         int id10 = 10;
-        String date10 = "13h00";
+        String date10 = "MAR 10 2022";
         String location10 = "Mario";
         String subject10 = "Réunion J";
         String attendees10 = "amandine@lamzone.com,luc@lamzone.com,maxime@lamzone.com,paul@lamzone.com";

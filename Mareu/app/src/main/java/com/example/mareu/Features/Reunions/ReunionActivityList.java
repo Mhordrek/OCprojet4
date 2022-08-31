@@ -18,17 +18,21 @@ import android.widget.Button;
 
 
 import com.example.mareu.Features.AddReunion.AddReunionActivity;
-import com.example.mareu.Utils.FilterDialogFragment;
+import com.example.mareu.Features.ReunionFilter.FilterDateDialogFragment;
+import com.example.mareu.Features.ReunionFilter.FilterLocationDialogFragment;
 import com.example.mareu.Utils.Event.DeleteReunionEvent;
 import com.example.mareu.Utils.Adapter.MareuRecyclerViewAdapter;
 import com.example.mareu.Model.Reunion;
 import com.example.mareu.R;
+import com.example.mareu.Utils.Event.FilterLocationEvent;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ReunionActivityList extends AppCompatActivity implements Mareu.View { RecyclerView list;
 
@@ -70,6 +74,7 @@ public class ReunionActivityList extends AppCompatActivity implements Mareu.View
     }
 
 
+
     @Override
     public void showReunions(List<Reunion> reunions) {
 
@@ -94,12 +99,14 @@ public class ReunionActivityList extends AppCompatActivity implements Mareu.View
 
             case R.id.filter_button_date:
 
+                Log.d("date","showdate");
+                showDateDialog();
                 return true;
 
             case R.id.filter_button_location:
 
-                Log.d("test","test");
-                showEditDialog();
+                Log.d("location","showlocation");
+                showLocationDialog();
                 return true;
 
 
@@ -108,13 +115,23 @@ public class ReunionActivityList extends AppCompatActivity implements Mareu.View
 
     }
 
-    private void showEditDialog() {
+    private void showDateDialog() {
 
-        FragmentManager fm = getSupportFragmentManager();
+        FragmentManager fmDate = getSupportFragmentManager();
 
-        FilterDialogFragment filterDialogFragment = FilterDialogFragment.newInstance("Some Title");
+        FilterDateDialogFragment filterDateDialogFragment = FilterDateDialogFragment.newInstance("Choisissez une date");
 
-        filterDialogFragment.show(fm, "fragment_edit_name");
+        filterDateDialogFragment.show(fmDate, "fragment_edit_name");
+
+    }
+
+    private void showLocationDialog() {
+
+        FragmentManager fmLocation = getSupportFragmentManager();
+
+        FilterLocationDialogFragment filterLocationDialogFragment = FilterLocationDialogFragment.newInstance("Choisissez une salle");
+
+        filterLocationDialogFragment.show(fmLocation, "fragment_edit_name");
 
     }
 
@@ -149,6 +166,22 @@ public class ReunionActivityList extends AppCompatActivity implements Mareu.View
 
         mPresenter.removeReunion(event.reunion);
         initList();
+    }
+
+    @Subscribe
+    public  void onFilterLocation(FilterLocationEvent event){
+
+        List<Reunion> reunions = mPresenter.loadReunions();
+        List<Reunion> filterLocation = new ArrayList<>();
+        for (Reunion reunion: reunions){
+            if(reunion.getLocation().equals("Mario")){
+                filterLocation.add(reunion);
+            }
+        }
+
+        showReunions(filterLocation);
+
+
     }
 
 
