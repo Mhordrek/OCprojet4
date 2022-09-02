@@ -1,36 +1,32 @@
 package com.example.mareu.Features.ReunionFilter;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
-import androidx.core.util.Pair;
 import androidx.fragment.app.DialogFragment;
 
+import com.example.mareu.Features.Reunions.ReunionActivityList;
+import com.example.mareu.Features.Reunions.ReunionModel;
 import com.example.mareu.Model.Reunion;
 import com.example.mareu.R;
-import com.example.mareu.Utils.Adapter.MareuRecyclerViewAdapter;
-import com.example.mareu.Utils.Event.FilterLocationEvent;
-import com.google.android.material.datepicker.MaterialDatePicker;
 
 import org.greenrobot.eventbus.EventBus;
 
 import java.util.List;
 
-public class FilterLocationDialogFragment extends DialogFragment implements ReuFilter.View {
+public class FilterLocationDialogFragment extends DialogFragment {
 
     private EditText mEditText;
-    private ReuFilterPresenter mReuFilterPresenter;
     Button mLocationMario;
     Button mLocationLuigi;
     Button mLocationPeach;
     Button mLocationBrowser;
+    Button mLocationAll;
 
 
 
@@ -79,7 +75,6 @@ public class FilterLocationDialogFragment extends DialogFragment implements ReuF
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
         super.onViewCreated(view, savedInstanceState);
-        mReuFilterPresenter = new ReuFilterPresenter();
 
 
         // Get field from view
@@ -88,15 +83,16 @@ public class FilterLocationDialogFragment extends DialogFragment implements ReuF
         mLocationLuigi = view.findViewById(R.id.salle_luigi);
         mLocationPeach = view.findViewById(R.id.salle_peach);
         mLocationBrowser = view.findViewById(R.id.salle_browser);
+        mLocationAll = view.findViewById(R.id.salle_tous);
 
 
         mLocationMario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-
-                EventBus.getDefault().post(new FilterLocationEvent("Mario"));
+                ((ReunionActivityList) getActivity()).filter("Mario");
                 getDialog().dismiss();
+
 
             }
         });
@@ -106,7 +102,7 @@ public class FilterLocationDialogFragment extends DialogFragment implements ReuF
             public void onClick(View view) {
 
 
-                EventBus.getDefault().post(new FilterLocationEvent("Luigi"));
+                ((ReunionActivityList) getActivity()).filter("Luigi");
                 getDialog().dismiss();
 
             }
@@ -117,7 +113,7 @@ public class FilterLocationDialogFragment extends DialogFragment implements ReuF
             public void onClick(View view) {
 
 
-                EventBus.getDefault().post(new FilterLocationEvent("Peach"));
+                ((ReunionActivityList) getActivity()).filter("Peach");
                 getDialog().dismiss();
 
             }
@@ -128,7 +124,19 @@ public class FilterLocationDialogFragment extends DialogFragment implements ReuF
             public void onClick(View view) {
 
 
-                EventBus.getDefault().post(new FilterLocationEvent("Browser"));
+                ((ReunionActivityList) getActivity()).filter("Browser");
+                getDialog().dismiss();
+
+            }
+        });
+
+        mLocationAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+               List<Reunion> reunions = ReunionModel.getInstance().getReunions();
+                ((ReunionActivityList) getActivity()).showReunions(reunions);
                 getDialog().dismiss();
 
             }

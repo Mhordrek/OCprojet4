@@ -4,7 +4,7 @@ import com.example.mareu.Model.Reunion;
 
 import java.util.List;
 
-public class ReunionPresenter implements Mareu.Presenter{
+public class ReunionPresenter implements Mareu.Presenter {
 
     private Mareu.View mReunionView;
 
@@ -25,6 +25,11 @@ public class ReunionPresenter implements Mareu.Presenter{
     @Override
     public void removeReunion(Reunion reunion) {
         ReunionModel.getInstance().removeReunion(reunion);
+    }
+
+    @Override
+    public List<Reunion> filter(String location) {
+        return ReunionModel.getInstance().filterReunions(location);
     }
 
 

@@ -22,10 +22,9 @@ import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClic
 
 import java.util.List;
 
-public class FilterDateDialogFragment extends DialogFragment implements ReuFilter.View {
+public class FilterDateDialogFragment extends DialogFragment {
 
     private EditText mEditText;
-    private ReuFilterPresenter mReuFilterPresenter;
     TextView dateText;
     Button calendar;
     Button validation;
@@ -73,7 +72,6 @@ public class FilterDateDialogFragment extends DialogFragment implements ReuFilte
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
         super.onViewCreated(view, savedInstanceState);
-        mReuFilterPresenter = new ReuFilterPresenter();
         dateText = view.findViewById(R.id.date_text);
         calendar = view.findViewById(R.id.date_calendar);
         validation = view.findViewById(R.id.date_calendar_validation);
@@ -85,13 +83,13 @@ public class FilterDateDialogFragment extends DialogFragment implements ReuFilte
 
         getDialog().setTitle(title);
 
-        MaterialDatePicker materialDatePicker = MaterialDatePicker.Builder.dateRangePicker().setSelection(Pair.create(MaterialDatePicker.thisMonthInUtcMilliseconds(),MaterialDatePicker.todayInUtcMilliseconds())).build();
+        MaterialDatePicker materialDatePicker = MaterialDatePicker.Builder.dateRangePicker().setSelection(Pair.create(MaterialDatePicker.thisMonthInUtcMilliseconds(), MaterialDatePicker.todayInUtcMilliseconds())).build();
         calendar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Log.d("datetest","test calendrier");
-                materialDatePicker.show(getParentFragmentManager(),"date_picker");
+                Log.d("datetest", "test calendrier");
+                materialDatePicker.show(getParentFragmentManager(), "date_picker");
                 materialDatePicker.addOnPositiveButtonClickListener(new MaterialPickerOnPositiveButtonClickListener() {
                     @Override
                     public void onPositiveButtonClick(Object selection) {
@@ -117,4 +115,5 @@ public class FilterDateDialogFragment extends DialogFragment implements ReuFilte
                 WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
 
     }
+
 }

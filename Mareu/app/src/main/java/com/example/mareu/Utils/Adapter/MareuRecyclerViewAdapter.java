@@ -26,7 +26,6 @@ public class MareuRecyclerViewAdapter extends RecyclerView.Adapter<MareuRecycler
     private List<Reunion> mReunions;
 
 
-
     public MareuRecyclerViewAdapter(List<Reunion> items) {
         mReunions = items;
     }
@@ -43,27 +42,31 @@ public class MareuRecyclerViewAdapter extends RecyclerView.Adapter<MareuRecycler
 
 
         Reunion reunion = mReunions.get(position);
-            Log.d("Test","Location: " + reunion.getLocation());
+        Log.d("Test", "Location: " + reunion.getLocation());
 
-            switch (reunion.getLocation()){
+        switch (reunion.getLocation()) {
 
-                case "Mario": holder.mAvatarView.setImageResource(R.drawable.red_circle);
+            case "Mario":
+                holder.mAvatarView.setImageResource(R.drawable.red_circle);
                 break;
 
-                case "Luigi": holder.mAvatarView.setImageResource(R.drawable.green_circle);
+            case "Luigi":
+                holder.mAvatarView.setImageResource(R.drawable.green_circle);
                 break;
 
-                case "Peach": holder.mAvatarView.setImageResource(R.drawable.salmon_circle);
+            case "Peach":
+                holder.mAvatarView.setImageResource(R.drawable.salmon_circle);
                 break;
 
-                case "Browser": holder.mAvatarView.setImageResource(R.drawable.purple_circle);
+            case "Browser":
+                holder.mAvatarView.setImageResource(R.drawable.purple_circle);
                 break;
 
-            }
+        }
 
 
-        holder.mSubjectView.setText(reunion.getSubject()+" -");
-        holder.mDateView.setText(reunion.getDate()+" -");
+        holder.mSubjectView.setText(reunion.getSubject() + " -");
+        holder.mDateView.setText(reunion.getDate() + " -");
         holder.mLocationView.setText(reunion.getLocation());
         holder.mAttendeesView.setText(reunion.getAttendees());
         holder.mDeleteView.setOnClickListener(new View.OnClickListener() {
@@ -78,7 +81,6 @@ public class MareuRecyclerViewAdapter extends RecyclerView.Adapter<MareuRecycler
 
 
     }
-
 
 
     @Override

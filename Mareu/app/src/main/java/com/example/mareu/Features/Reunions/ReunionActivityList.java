@@ -24,17 +24,15 @@ import com.example.mareu.Utils.Event.DeleteReunionEvent;
 import com.example.mareu.Utils.Adapter.MareuRecyclerViewAdapter;
 import com.example.mareu.Model.Reunion;
 import com.example.mareu.R;
-import com.example.mareu.Utils.Event.FilterLocationEvent;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
-public class ReunionActivityList extends AppCompatActivity implements Mareu.View { RecyclerView list;
+public class ReunionActivityList extends AppCompatActivity implements Mareu.View {
+    RecyclerView list;
 
     private MareuRecyclerViewAdapter adapter;
     private ReunionPresenter mPresenter;
@@ -43,15 +41,12 @@ public class ReunionActivityList extends AppCompatActivity implements Mareu.View
     private Button getLocationFilterButton;
 
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reunion_list);
         mPresenter = new ReunionPresenter(this);
-        list=(RecyclerView) findViewById(R.id.list);
+        list = (RecyclerView) findViewById(R.id.list);
         list.setLayoutManager(new LinearLayoutManager(this));
         list.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         List<Reunion> reunions = mPresenter.loadReunions();
@@ -74,43 +69,49 @@ public class ReunionActivityList extends AppCompatActivity implements Mareu.View
     }
 
 
-
     @Override
     public void showReunions(List<Reunion> reunions) {
 
-        adapter=new MareuRecyclerViewAdapter(reunions);
+        adapter = new MareuRecyclerViewAdapter(reunions);
         list.setAdapter(adapter);
 
     }
 
     @Override
+    public void filter(String location) {
+        List<Reunion> reunions =  mPresenter.filter(location);
+        showReunions(reunions);
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        Log.d("test","test");
+        Log.d("test", "test");
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.filter_button,menu);
+        inflater.inflate(R.menu.filter_button, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Log.d("test","test");
-        switch(item.getItemId()){
+        Log.d("test", "test");
+        switch (item.getItemId()) {
 
 
             case R.id.filter_button_date:
 
-                Log.d("date","showdate");
+                Log.d("date", "showdate");
                 showDateDialog();
                 return true;
 
             case R.id.filter_button_location:
 
-                Log.d("location","showlocation");
+                Log.d("location", "showlocation");
                 showLocationDialog();
                 return true;
 
 
-            default: return(super.onOptionsItemSelected(item));
+            default:
+                return (super.onOptionsItemSelected(item));
         }
 
     }
@@ -143,6 +144,7 @@ public class ReunionActivityList extends AppCompatActivity implements Mareu.View
 
     }
 
+
     @Override
     public void onResume() {
         super.onResume();
@@ -162,29 +164,13 @@ public class ReunionActivityList extends AppCompatActivity implements Mareu.View
     }
 
     @Subscribe
-    public void onDeleteReunion(DeleteReunionEvent event){
+    public void onDeleteReunion(DeleteReunionEvent event) {
 
         mPresenter.removeReunion(event.reunion);
         initList();
     }
 
-    @Subscribe
-    public  void onFilterLocation(FilterLocationEvent event){
-
-        List<Reunion> reunions = mPresenter.loadReunions();
-        List<Reunion> filterLocation = new ArrayList<>();
-        for (Reunion reunion: reunions){
-            if(reunion.getLocation().equals("Mario")){
-                filterLocation.add(reunion);
-            }
-        }
-
-        showReunions(filterLocation);
-
-
-    }
-
-
-
-
 }
+
+
+

@@ -2,15 +2,15 @@ package com.example.mareu.Model;
 
 public class Reunion {
 
-private int id;
+    private int id;
 
-private String date;
+    private String date;
 
-private String location;
+    private String location;
 
-private String subject;
+    private String subject;
 
-private String attendees;
+    private String attendees;
 
 
     public Reunion(int id, String date, String location, String subject, String attendees) {
