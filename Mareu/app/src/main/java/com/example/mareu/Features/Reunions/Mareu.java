@@ -10,7 +10,9 @@ public interface Mareu {
     interface View extends Mvp.View{
 
         void showReunions(List<Reunion> shows);
-        void filter(String location);
+        void filterLocation(String location);
+        void filterDate(Long startDate,Long endDate);
+
     }
 
     interface Model extends Mvp.Model{
@@ -23,7 +25,9 @@ public interface Mareu {
     interface Presenter extends Mvp.Presenter<View>{
         List<Reunion> loadReunions();
         void removeReunion(Reunion reunion);
-        List<Reunion> filter(String location);
+        List<Reunion> filterLocation(String location);
+        List<Reunion> filterDate(Long starDate,Long endDate);
+
 
 
     }

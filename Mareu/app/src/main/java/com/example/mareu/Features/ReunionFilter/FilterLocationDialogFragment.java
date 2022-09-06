@@ -90,7 +90,7 @@ public class FilterLocationDialogFragment extends DialogFragment {
             @Override
             public void onClick(View view) {
 
-                ((ReunionActivityList) getActivity()).filter("Mario");
+                ((ReunionActivityList) getActivity()).filterLocation("Mario");
                 getDialog().dismiss();
 
 
@@ -102,7 +102,7 @@ public class FilterLocationDialogFragment extends DialogFragment {
             public void onClick(View view) {
 
 
-                ((ReunionActivityList) getActivity()).filter("Luigi");
+                ((ReunionActivityList) getActivity()).filterLocation("Luigi");
                 getDialog().dismiss();
 
             }
@@ -113,7 +113,7 @@ public class FilterLocationDialogFragment extends DialogFragment {
             public void onClick(View view) {
 
 
-                ((ReunionActivityList) getActivity()).filter("Peach");
+                ((ReunionActivityList) getActivity()).filterLocation("Peach");
                 getDialog().dismiss();
 
             }
@@ -124,7 +124,7 @@ public class FilterLocationDialogFragment extends DialogFragment {
             public void onClick(View view) {
 
 
-                ((ReunionActivityList) getActivity()).filter("Browser");
+                ((ReunionActivityList) getActivity()).filterLocation("Browser");
                 getDialog().dismiss();
 
             }

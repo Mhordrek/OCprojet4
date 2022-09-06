@@ -78,10 +78,17 @@ public class ReunionActivityList extends AppCompatActivity implements Mareu.View
     }
 
     @Override
-    public void filter(String location) {
-        List<Reunion> reunions =  mPresenter.filter(location);
+    public void filterLocation(String location) {
+        List<Reunion> reunions =  mPresenter.filterLocation(location);
         showReunions(reunions);
     }
+
+    @Override
+    public void filterDate(Long startDate, Long endDate) {
+        List<Reunion> reunions = mPresenter.filterDate(startDate,endDate);
+        showReunions(reunions);
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

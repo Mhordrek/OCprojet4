@@ -28,8 +28,13 @@ public class ReunionPresenter implements Mareu.Presenter {
     }
 
     @Override
-    public List<Reunion> filter(String location) {
+    public List<Reunion> filterLocation(String location) {
         return ReunionModel.getInstance().filterReunions(location);
+    }
+
+    @Override
+    public List<Reunion> filterDate(Long starDate, Long endDate) {
+        return ReunionModel.getInstance().filterDateReunions(starDate,endDate);
     }
 
 

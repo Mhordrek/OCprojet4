@@ -1,5 +1,6 @@
 package com.example.mareu.Features.ReunionFilter;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,6 +15,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.util.Pair;
 import androidx.fragment.app.DialogFragment;
 
+import com.example.mareu.Features.Reunions.ReunionActivityList;
+import com.example.mareu.Features.Reunions.ReunionModel;
 import com.example.mareu.Model.Reunion;
 import com.example.mareu.R;
 import com.example.mareu.Utils.Adapter.MareuRecyclerViewAdapter;
@@ -83,17 +86,23 @@ public class FilterDateDialogFragment extends DialogFragment {
 
         getDialog().setTitle(title);
 
-        MaterialDatePicker materialDatePicker = MaterialDatePicker.Builder.dateRangePicker().setSelection(Pair.create(MaterialDatePicker.thisMonthInUtcMilliseconds(), MaterialDatePicker.todayInUtcMilliseconds())).build();
+        MaterialDatePicker<Pair<Long, Long>> materialDatePicker = MaterialDatePicker.Builder.dateRangePicker().setSelection(Pair.create(MaterialDatePicker.thisMonthInUtcMilliseconds(), MaterialDatePicker.todayInUtcMilliseconds())).build();
         calendar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 Log.d("datetest", "test calendrier");
                 materialDatePicker.show(getParentFragmentManager(), "date_picker");
-                materialDatePicker.addOnPositiveButtonClickListener(new MaterialPickerOnPositiveButtonClickListener() {
+                materialDatePicker.addOnPositiveButtonClickListener(new MaterialPickerOnPositiveButtonClickListener<Pair<Long, Long>>() {
                     @Override
-                    public void onPositiveButtonClick(Object selection) {
+                    public void onPositiveButtonClick(Pair<Long, Long> selection) {
+                        Long startDate = selection.first;
+                        Long endDate = selection.second;
+
                         dateText.setText(materialDatePicker.getHeaderText());
+
+                        ReunionModel.getInstance().filterDateReunions(startDate,endDate);
+
                     }
                 });
 
@@ -103,6 +112,8 @@ public class FilterDateDialogFragment extends DialogFragment {
         validation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                ((ReunionActivityList) getActivity()).filterDate(startDate,endDate);
 
             }
         });

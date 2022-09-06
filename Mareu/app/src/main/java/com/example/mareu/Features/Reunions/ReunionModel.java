@@ -1,8 +1,15 @@
 package com.example.mareu.Features.Reunions;
 
+import android.util.Log;
+
 import com.example.mareu.Model.Reunion;
 
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 public class ReunionModel implements Mareu.Model {
@@ -101,6 +108,51 @@ public class ReunionModel implements Mareu.Model {
         }
         return instance;
     }
+
+    public List<Reunion> filterDateReunions(Long startDate, Long endDate) {
+
+        List<Reunion> reunions = getReunions();
+        List<Date> listDates = new ArrayList<>();
+        List<String> dateStringList = new ArrayList<>();
+        List<Reunion> filterDate = new ArrayList<>();
+
+        Format format = new SimpleDateFormat("MM/dd/yy");
+
+        Date sDate = new Date(startDate);
+        Date eDate = new Date(endDate);
+
+        String date1 = format.format(sDate);
+        String date2 = format.format(eDate);
+
+        Log.d("filterdate", date1.toString() + date2.toString());
+
+        Calendar calendar = new GregorianCalendar();
+        calendar.setTime(sDate);
+
+        while (calendar.getTime().before(eDate)) {
+
+            Date result = calendar.getTime();
+            listDates.add(result);
+            calendar.add(Calendar.DATE, 1);
+        }
+
+        for(Date date:listDates){
+            String dateStr = String.valueOf(date);
+            dateStringList.add(dateStr);
+        }
+
+        for (Reunion reunion : reunions) {
+
+            if (reunion.getDate().equals(dateStringList)) {
+                filterDate.add(reunion);
+
+            }
+        }
+
+
+        return filterDate;
+    }
+
 
     public List<Reunion> filterReunions(String location) {
         List<Reunion> reunions = getReunions();
