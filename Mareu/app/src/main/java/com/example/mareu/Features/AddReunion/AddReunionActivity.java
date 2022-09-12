@@ -48,13 +48,13 @@ public class AddReunionActivity extends AppCompatActivity implements AddReu.View
         initDatePicker();
 
         Spinner spinner = (Spinner) findViewById(R.id.spinnerlocation);
-        ArrayAdapter<CharSequence> spinnerAdapter = ArrayAdapter.createFromResource(this,R.array.location_names, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> spinnerAdapter = ArrayAdapter.createFromResource(this, R.array.location_names, android.R.layout.simple_spinner_item);
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(spinnerAdapter);
 
 
-        mMultiAutoCompleteAttendees = (MultiAutoCompleteTextView)findViewById(R.id.multiAutoCompleteTextView);
-        ArrayAdapter<String> autocompleteAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,ATTENDEES);
+        mMultiAutoCompleteAttendees = (MultiAutoCompleteTextView) findViewById(R.id.multiAutoCompleteTextView);
+        ArrayAdapter<String> autocompleteAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, ATTENDEES);
         mMultiAutoCompleteAttendees.setAdapter(autocompleteAdapter);
         mMultiAutoCompleteAttendees.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
 
@@ -77,10 +77,10 @@ public class AddReunionActivity extends AppCompatActivity implements AddReu.View
 
 
                 checkField = checkAllField();
-                if(checkField){
+                if (checkField) {
 
                     mAddReunionPresenter.addReunion(newReunion);
-                    Intent intent = new Intent(getApplicationContext(),ReunionActivityList.class);
+                    Intent intent = new Intent(getApplicationContext(), ReunionActivityList.class);
                     startActivity(intent);
 
                 }
@@ -90,26 +90,26 @@ public class AddReunionActivity extends AppCompatActivity implements AddReu.View
     }
 
     List<String> ATTENDEES = Arrays.asList(new String[]{
-            "amandine@lamzone.com","luc@lamzone.com","maxime@lamzone.com","paul@lamzone.com"});
+            "amandine@lamzone.com", "luc@lamzone.com", "maxime@lamzone.com", "paul@lamzone.com"});
 
 
     private String getTodaysDate() {
         Calendar cal = Calendar.getInstance();
         int year = cal.get(Calendar.YEAR);
         int month = cal.get(Calendar.MONTH);
-        month = month +1;
+        month = month + 1;
         int day = cal.get(Calendar.DAY_OF_MONTH);
-        return makeDateString(day,month,year);
+        return makeDateString(day, month, year);
     }
 
-    private void initDatePicker(){
+    private void initDatePicker() {
 
         DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
 
                 month = month + 1;
-                String date = makeDateString(day,month,year);
+                String date = makeDateString(day, month, year);
                 dateButton.setText(date);
             }
         };
@@ -120,7 +120,7 @@ public class AddReunionActivity extends AppCompatActivity implements AddReu.View
 
         int style = AlertDialog.THEME_HOLO_LIGHT;
 
-        mDatePickerDialog = new DatePickerDialog(this,style,dateSetListener,year,month,day);
+        mDatePickerDialog = new DatePickerDialog(this, style, dateSetListener, year, month, day);
     }
 
     private String makeDateString(int day, int month, int year) {
@@ -129,57 +129,57 @@ public class AddReunionActivity extends AppCompatActivity implements AddReu.View
     }
 
     private String getMonthFormat(int month) {
-        if(month == 1)
+        if (month == 1)
             return "JAN";
-        if(month == 2)
+        if (month == 2)
             return "FEB";
-        if(month == 3)
+        if (month == 3)
             return "MAR";
-        if(month == 4)
+        if (month == 4)
             return "APR";
-        if(month == 5)
+        if (month == 5)
             return "MAY";
-        if(month == 6)
+        if (month == 6)
             return "JUN";
-        if(month == 7)
+        if (month == 7)
             return "JUL";
-        if(month == 8)
+        if (month == 8)
             return "AUG";
-        if(month == 9)
+        if (month == 9)
             return "SEP";
-        if(month == 10)
+        if (month == 10)
             return "OCT";
-        if(month == 11)
+        if (month == 11)
             return "NOV";
-        if(month == 12)
+        if (month == 12)
             return "DEC";
 
         return "Jan";
     }
 
-    public void openDatePicker(View view){
+    public void openDatePicker(View view) {
 
         mDatePickerDialog.show();
     }
 
 
-    private boolean checkAllField(){
+    private boolean checkAllField() {
 
         String checkSubject = mSubject.getEditText().getText().toString();
         String checkAttendees = mMultiAutoCompleteAttendees.getText().toString();
 
-        if(checkSubject.isEmpty()){
+        if (checkSubject.isEmpty()) {
             mSubject.setError("Le champ ne dois pas être vide");
-            Toast.makeText(this,"Merci de renseigner le Sujet",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Merci de renseigner le Sujet", Toast.LENGTH_SHORT).show();
             return false;
 
 
-        }else if(checkAttendees.isEmpty()){
+        } else if (checkAttendees.isEmpty()) {
             mMultiAutoCompleteAttendees.setError("Le champ ne dois pas être vide");
-            Toast.makeText(this,"Merci de mettre au moins un participant",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Merci de mettre au moins un participant", Toast.LENGTH_SHORT).show();
             return false;
 
-        }else {
+        } else {
 
             mSubject.setError(null);
             mSubject.setErrorEnabled(false);

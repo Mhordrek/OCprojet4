@@ -16,6 +16,7 @@ public class ReunionModel implements Mareu.Model {
 
     List<Reunion> reunions = new ArrayList<Reunion>();
     private static ReunionModel instance = null;
+    private static final  String TAG = "ReunionModel";
 
     protected ReunionModel() {
 
@@ -92,7 +93,7 @@ public class ReunionModel implements Mareu.Model {
         reunions.add(reunion9);
 
         int id10 = 10;
-        String date10 = "MAR 10 2022";
+        String date10 = "SEP 12 2022";
         String location10 = "Mario";
         String subject10 = "Réunion J";
         String attendees10 = "amandine@lamzone.com,luc@lamzone.com,maxime@lamzone.com,paul@lamzone.com";
@@ -111,23 +112,23 @@ public class ReunionModel implements Mareu.Model {
 
     public List<Reunion> filterDateReunions(Long startDate, Long endDate) {
 
+        Log.v(TAG,"date de départ=" + startDate);
+        Log.v(TAG,"date de fin=" + endDate);
+
+
         List<Reunion> reunions = getReunions();
         List<Date> listDates = new ArrayList<>();
         List<String> dateStringList = new ArrayList<>();
         List<Reunion> filterDate = new ArrayList<>();
 
-        Format format = new SimpleDateFormat("MM/dd/yy");
+        Format format = new SimpleDateFormat("MMM dd yyyy");
 
         Date sDate = new Date(startDate);
         Date eDate = new Date(endDate);
-
-        String date1 = format.format(sDate);
-        String date2 = format.format(eDate);
-
-        Log.d("filterdate", date1.toString() + date2.toString());
-
+        
         Calendar calendar = new GregorianCalendar();
         calendar.setTime(sDate);
+
 
         while (calendar.getTime().before(eDate)) {
 
@@ -136,19 +137,24 @@ public class ReunionModel implements Mareu.Model {
             calendar.add(Calendar.DATE, 1);
         }
 
-        for(Date date:listDates){
-            String dateStr = String.valueOf(date);
-            dateStringList.add(dateStr);
+        Log.v(TAG,"liste de dates=" + listDates );
+
+        for (Date date : listDates) {
+            String dateStr = format.format(date);
+            dateStringList.add(dateStr.toUpperCase());
         }
+        Log.v(TAG,"liste de dates format string=" + dateStringList );
 
         for (Reunion reunion : reunions) {
 
-            if (reunion.getDate().equals(dateStringList)) {
-                filterDate.add(reunion);
-
+            for (int i = 0; i < dateStringList.size() ; i++) {
+                if(reunion.getDate().equals(dateStringList.get(i))){
+                    filterDate.add(reunion);
+                }
             }
         }
 
+        Log.v(TAG,"liste de dates filtrées=" + filterDate );
 
         return filterDate;
     }

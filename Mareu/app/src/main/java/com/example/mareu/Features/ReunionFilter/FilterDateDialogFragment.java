@@ -101,7 +101,12 @@ public class FilterDateDialogFragment extends DialogFragment {
 
                         dateText.setText(materialDatePicker.getHeaderText());
 
-                        ReunionModel.getInstance().filterDateReunions(startDate,endDate);
+                        validation.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                ((ReunionActivityList) getActivity()).filterDate(startDate,endDate);
+                            }
+                        });
 
                     }
                 });
@@ -109,14 +114,6 @@ public class FilterDateDialogFragment extends DialogFragment {
             }
         });
 
-        validation.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                ((ReunionActivityList) getActivity()).filterDate(startDate,endDate);
-
-            }
-        });
 
         // Show soft keyboard automatically and request focus to field
 
