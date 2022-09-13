@@ -125,7 +125,7 @@ public class ReunionModel implements Mareu.Model {
 
         Date sDate = new Date(startDate);
         Date eDate = new Date(endDate);
-        
+
         Calendar calendar = new GregorianCalendar();
         calendar.setTime(sDate);
 
