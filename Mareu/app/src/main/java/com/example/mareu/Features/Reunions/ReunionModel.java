@@ -127,15 +127,12 @@ public class ReunionModel implements Mareu.Model {
         Date eDate = new Date(endDate);
 
         Calendar calendar = new GregorianCalendar();
-        calendar.setTime(sDate);
 
+        for(calendar.setTime(sDate);!sDate.after(eDate);calendar.add(Calendar.DATE, 1),sDate = calendar.getTime() ){
 
-        while (calendar.getTime().before(eDate)) {
-
-            Date result = calendar.getTime();
-            listDates.add(result);
-            calendar.add(Calendar.DATE, 1);
+            listDates.add(sDate);
         }
+
 
         Log.v(TAG,"liste de dates=" + listDates );
 

@@ -53,6 +53,9 @@ public class AddReunionActivity extends AppCompatActivity implements AddReu.View
         spinner.setAdapter(spinnerAdapter);
 
 
+        List<String> ATTENDEES = Arrays.asList(new String[]{
+                "amandine@lamzone.com", "luc@lamzone.com", "maxime@lamzone.com", "paul@lamzone.com"});
+
         mMultiAutoCompleteAttendees = (MultiAutoCompleteTextView) findViewById(R.id.multiAutoCompleteTextView);
         ArrayAdapter<String> autocompleteAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, ATTENDEES);
         mMultiAutoCompleteAttendees.setAdapter(autocompleteAdapter);
@@ -89,8 +92,7 @@ public class AddReunionActivity extends AppCompatActivity implements AddReu.View
         });
     }
 
-    List<String> ATTENDEES = Arrays.asList(new String[]{
-            "amandine@lamzone.com", "luc@lamzone.com", "maxime@lamzone.com", "paul@lamzone.com"});
+
 
 
     private String getTodaysDate() {
