@@ -37,8 +37,6 @@ public class ReunionActivityList extends AppCompatActivity implements Mareu.View
     private MareuRecyclerViewAdapter adapter;
     private ReunionPresenter mPresenter;
     private FloatingActionButton mFloatingActionButton;
-    private Button locationFilterButton;
-    private Button getLocationFilterButton;
 
 
     @Override

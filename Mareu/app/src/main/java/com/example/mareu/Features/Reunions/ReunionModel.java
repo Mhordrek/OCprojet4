@@ -7,6 +7,7 @@ import com.example.mareu.Model.Reunion;
 import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -14,9 +15,26 @@ import java.util.List;
 
 public class ReunionModel implements Mareu.Model {
 
-    List<Reunion> reunions = new ArrayList<Reunion>();
+
     private static ReunionModel instance = null;
-    private static final  String TAG = "ReunionModel";
+    private static final String TAG = "ReunionModel";
+
+    List<Reunion> reunions = new ArrayList<Reunion>();
+
+    public static List<Reunion> DUMMY_REUNIONS = Arrays.asList(
+            new Reunion(1, "AUG 25 2022", "Peach", "Réunion A", "amandine@lamzone.com,luc@lamzone.com,maxime@lamzone.com,paul@lamzone.com"),
+            new Reunion(2, "JAN 13 2022", "Mario", "Réunion B", "amandine@lamzone.com,luc@lamzone.com,maxime@lamzone.com,paul@lamzone.com"),
+            new Reunion(3, "MAR 5 2022", "Luigi", "Réunion C", "amandine@lamzone.com,luc@lamzone.com,maxime@lamzone.com,paul@lamzone.com"),
+            new Reunion(4, "DEC 11 2021", "Browser", "Réunion D", "amandine@lamzone.com,luc@lamzone.com,maxime@lamzone.com,paul@lamzone.com"),
+            new Reunion(5, "JUN 15 2022", "Peach", "Réunion E", "amandine@lamzone.com,luc@lamzone.com,maxime@lamzone.com,paul@lamzone.com"),
+            new Reunion(6, "AUG 25 2022", "Mario", "Réunion F", "amandine@lamzone.com,luc@lamzone.com,maxime@lamzone.com,paul@lamzone.com"),
+            new Reunion(7, "JUL 2 2022", "Luigi", "Réunion G", "amandine@lamzone.com,luc@lamzone.com,maxime@lamzone.com,paul@lamzone.com"),
+            new Reunion(8, "AUG 11 2022", "Browser", "Réunion H", "amandine@lamzone.com,luc@lamzone.com,maxime@lamzone.com,paul@lamzone.com"),
+            new Reunion(9, "APR 18 2022", "Peach", "Réunion I", "amandine@lamzone.com,luc@lamzone.com,maxime@lamzone.com,paul@lamzone.com"),
+            new Reunion(10, "SEP 12 2022", "Mario", "Réunion J", "amandine@lamzone.com,luc@lamzone.com,maxime@lamzone.com,paul@lamzone.com")
+    );
+
+    static List<Reunion> generateReunions(){return new ArrayList<>(DUMMY_REUNIONS);}
 
     protected ReunionModel() {
 
@@ -112,8 +130,8 @@ public class ReunionModel implements Mareu.Model {
 
     public List<Reunion> filterDateReunions(Long startDate, Long endDate) {
 
-        Log.v(TAG,"date de départ=" + startDate);
-        Log.v(TAG,"date de fin=" + endDate);
+        //Log.v(TAG, "date de départ=" + startDate);
+        //Log.v(TAG, "date de fin=" + endDate);
 
 
         List<Reunion> reunions = getReunions();
@@ -128,30 +146,30 @@ public class ReunionModel implements Mareu.Model {
 
         Calendar calendar = new GregorianCalendar();
 
-        for(calendar.setTime(sDate);!sDate.after(eDate);calendar.add(Calendar.DATE, 1),sDate = calendar.getTime() ){
+        for (calendar.setTime(sDate); !sDate.after(eDate); calendar.add(Calendar.DATE, 1), sDate = calendar.getTime()) {
 
             listDates.add(sDate);
         }
 
 
-        Log.v(TAG,"liste de dates=" + listDates );
+        //Log.v(TAG, "liste de dates=" + listDates);
 
         for (Date date : listDates) {
             String dateStr = format.format(date);
             dateStringList.add(dateStr.toUpperCase());
         }
-        Log.v(TAG,"liste de dates format string=" + dateStringList );
+        //Log.v(TAG, "liste de dates format string=" + dateStringList);
 
         for (Reunion reunion : reunions) {
 
-            for (int i = 0; i < dateStringList.size() ; i++) {
-                if(reunion.getDate().equals(dateStringList.get(i))){
+            for (int i = 0; i < dateStringList.size(); i++) {
+                if (reunion.getDate().equals(dateStringList.get(i))) {
                     filterDate.add(reunion);
                 }
             }
         }
 
-        Log.v(TAG,"liste de dates filtrées=" + filterDate );
+        //Log.v(TAG, "liste de dates filtrées=" + filterDate);
 
         return filterDate;
     }

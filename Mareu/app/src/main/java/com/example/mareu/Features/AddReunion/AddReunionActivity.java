@@ -19,11 +19,10 @@ import com.example.mareu.Model.Reunion;
 import com.example.mareu.R;
 import com.google.android.material.textfield.TextInputLayout;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
-import java.util.stream.Collectors;
+
 
 public class AddReunionActivity extends AppCompatActivity implements AddReu.View {
 
@@ -93,8 +92,6 @@ public class AddReunionActivity extends AppCompatActivity implements AddReu.View
     }
 
 
-
-
     private String getTodaysDate() {
         Calendar cal = Calendar.getInstance();
         int year = cal.get(Calendar.YEAR);
@@ -156,7 +153,7 @@ public class AddReunionActivity extends AppCompatActivity implements AddReu.View
         if (month == 12)
             return "DEC";
 
-        return "Jan";
+        return "JAN";
     }
 
     public void openDatePicker(View view) {
@@ -179,6 +176,11 @@ public class AddReunionActivity extends AppCompatActivity implements AddReu.View
         } else if (checkAttendees.isEmpty()) {
             mMultiAutoCompleteAttendees.setError("Le champ ne dois pas être vide");
             Toast.makeText(this, "Merci de mettre au moins un participant", Toast.LENGTH_SHORT).show();
+            return false;
+
+        } else if (!checkAttendees.contains("@lamzone.com")) {
+            mMultiAutoCompleteAttendees.setError("Le champ ne dois pas être vide");
+            Toast.makeText(this, "Merci de mettre une adresse au format prenom@lamzone.com", Toast.LENGTH_SHORT).show();
             return false;
 
         } else {
