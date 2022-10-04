@@ -1,26 +1,24 @@
 package com.example.mareu;
 
-import android.content.Context;
-import android.support.test.espresso.contrib.RecyclerViewActions;
-import android.support.test.espresso.matcher.ViewMatchers;
+import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.typeText;
+import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.matcher.ViewMatchers.hasMinimumChildCount;
 
+import android.content.Context;
+import androidx.test.espresso.contrib.RecyclerViewActions;
+import androidx.test.espresso.matcher.ViewMatchers;
+import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
+import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import static android.support.test.espresso.Espresso.onView;
-import static android.support.test.espresso.action.ViewActions.click;
-import static android.support.test.espresso.action.ViewActions.typeText;
-import static android.support.test.espresso.assertion.ViewAssertions.matches;
-import static android.support.test.espresso.matcher.ViewMatchers.assertThat;
-import static android.support.test.espresso.matcher.ViewMatchers.hasMinimumChildCount;
-import static android.support.test.espresso.matcher.ViewMatchers.isClickable;
-import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
-import static android.support.test.espresso.matcher.ViewMatchers.withContentDescription;
-import static android.support.test.espresso.matcher.ViewMatchers.withId;
-import static android.support.test.espresso.matcher.ViewMatchers.withSubstring;
-import static android.support.test.espresso.matcher.ViewMatchers.withText;
+
+
 import static com.example.mareu.utils.RecyclerViewItemCountAssertion.withItemCount;
 import static org.hamcrest.core.IsNull.notNullValue;
 
@@ -28,6 +26,7 @@ import static org.hamcrest.core.IsNull.notNullValue;
 import static org.junit.Assert.*;
 
 import com.example.mareu.Features.Reunions.Mareu;
+import com.example.mareu.Features.Reunions.ReunionActivityList;
 import com.example.mareu.utils.DeleteViewAction;
 
 /**
@@ -37,6 +36,14 @@ import com.example.mareu.utils.DeleteViewAction;
  */
 @RunWith(AndroidJUnit4.class)
 public class ReunionListTest {
+
+
+
+    @Rule
+    public ActivityScenarioRule<ReunionActivityList> mActivityRule =
+            new ActivityScenarioRule<>(ReunionActivityList.class);
+
+
 
     @Test
     public void useAppContext() {
