@@ -40,5 +40,16 @@
         android:text="Valider"
         android:textAlignment="center"></Button>
 
+    <Button
+        android:id="@+id/date_calendar_all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:text="All"
+        android:textAlignment="center"></Button>
+
+
+
 
 </LinearLayout>

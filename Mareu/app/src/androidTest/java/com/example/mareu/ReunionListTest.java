@@ -1,12 +1,20 @@
 package com.example.mareu;
 
 import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.Espresso.openActionBarOverflowOrOptionsMenu;
 import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.pressImeActionButton;
+import static androidx.test.espresso.action.ViewActions.pressKey;
+import static androidx.test.espresso.action.ViewActions.replaceText;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.hasMinimumChildCount;
+import static androidx.test.espresso.matcher.ViewMatchers.withText;
+import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
 
 import android.content.Context;
+import android.view.KeyEvent;
+
 import androidx.test.espresso.contrib.RecyclerViewActions;
 import androidx.test.espresso.matcher.ViewMatchers;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
@@ -48,7 +56,7 @@ public class ReunionListTest {
     @Test
     public void useAppContext() {
         // Context of the app under test.
-        Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
+        Context appContext = getInstrumentation().getTargetContext();
         assertEquals("com.example.mareu", appContext.getPackageName());
     }
 
@@ -62,33 +70,40 @@ public class ReunionListTest {
 
         onView(ViewMatchers.withId(R.id.list)).check(withItemCount(10));
         onView(ViewMatchers.withId(R.id.list)).perform(RecyclerViewActions.actionOnItemAtPosition(0, new DeleteViewAction()));
-        onView(ViewMatchers.withId(R.id.list)).check(withItemCount(-1));
+        onView(ViewMatchers.withId(R.id.list)).check(withItemCount(9));
     }
 
     @Test
     public void myReunionsAddButtonShouldAddANewReunion(){
 
         onView(ViewMatchers.withId(R.id.floatingActionButton)).perform(click());
-        onView(ViewMatchers.withId(R.id.rSubject)).perform(click()).perform(typeText("Reunion test"));
-        onView(ViewMatchers.withId(R.id.multiAutoCompleteTextView)).perform(click()).perform(typeText("Amandine@lamzone.com"));
+        onView(ViewMatchers.withId(R.id.rSubject)).perform(click());
+        onView(ViewMatchers.withId(R.id.inputText)).perform(typeText("Reunion test"),pressImeActionButton());
+        onView(ViewMatchers.withId(R.id.multiAutoCompleteTextView)).perform(click());
+        onView(ViewMatchers.withId(R.id.multiAutoCompleteTextView)).perform(typeText("Amandine@lamzone.com"),pressImeActionButton());
         onView(ViewMatchers.withId(R.id.validationbutton)).perform(click());
+
 
     }
 
     @Test
     public void myReunionFilterDateButtonIsFilteringReunions(){
 
-        onView(ViewMatchers.withId(R.menu.filter_button)).perform(click());
-        onView(ViewMatchers.withId(R.id.filter_button_date)).perform(click());
-        onView(ViewMatchers.withId(R.id.date_calendar)).perform(click());
-
-
+        openActionBarOverflowOrOptionsMenu(getInstrumentation().getTargetContext());
+        onView(withText("Filtre par Date")).perform(click());
+        onView(withText("CALENDRIER")).perform(click());
+        onView(withText("SAVE")).perform(click());
+        onView(withText("VALIDER")).perform(click());
 
     }
 
     @Test
     public void myReunionFilterLocationButtonIsFilteringReunion(){
 
+        openActionBarOverflowOrOptionsMenu(getInstrumentation().getTargetContext());
+        onView(withText("Filtre par Salle")).perform(click());
+        onView(withText("MARIO")).perform(click());
+        onView(ViewMatchers.withId(R.id.list)).check(withItemCount(3));
 
 
     }

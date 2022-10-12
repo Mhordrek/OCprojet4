@@ -41,6 +41,10 @@
             android:layout_marginTop="100dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputText"
+                android:inputType="text"
+                android:imeOptions="actionDone"
+                android:singleLine="true"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:hint="Sujet" />
@@ -104,6 +108,8 @@
             android:layout_marginRight="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            android:imeOptions="actionDone"
+            android:singleLine="true"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
         <Button

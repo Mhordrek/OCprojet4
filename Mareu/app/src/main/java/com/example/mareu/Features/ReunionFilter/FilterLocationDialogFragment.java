@@ -83,7 +83,7 @@ public class FilterLocationDialogFragment extends DialogFragment {
         mLocationLuigi = view.findViewById(R.id.salle_luigi);
         mLocationPeach = view.findViewById(R.id.salle_peach);
         mLocationBrowser = view.findViewById(R.id.salle_browser);
-        mLocationAll = view.findViewById(R.id.salle_tous);
+        mLocationAll = view.findViewById(R.id.salle_all);
 
 
         mLocationMario.setOnClickListener(new View.OnClickListener() {

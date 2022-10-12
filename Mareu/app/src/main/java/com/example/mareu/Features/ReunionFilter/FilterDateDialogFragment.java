@@ -31,6 +31,7 @@ public class FilterDateDialogFragment extends DialogFragment {
     TextView dateText;
     Button calendar;
     Button validation;
+    Button all;
 
 
     public FilterDateDialogFragment() {
@@ -78,6 +79,7 @@ public class FilterDateDialogFragment extends DialogFragment {
         dateText = view.findViewById(R.id.date_text);
         calendar = view.findViewById(R.id.date_calendar);
         validation = view.findViewById(R.id.date_calendar_validation);
+        all = view.findViewById(R.id.date_calendar_all);
 
 
         // Fetch arguments from bundle and set title
@@ -105,12 +107,23 @@ public class FilterDateDialogFragment extends DialogFragment {
                             @Override
                             public void onClick(View view) {
                                 ((ReunionActivityList) getActivity()).filterDate(startDate,endDate);
+                                getDialog().dismiss();
                             }
                         });
 
                     }
                 });
 
+            }
+        });
+
+        all.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                List<Reunion> reunions = ReunionModel.getInstance().getReunions();
+                ((ReunionActivityList) getActivity()).showReunions(reunions);
+                getDialog().dismiss();
             }
         });
 
