@@ -98,19 +98,19 @@ public class ReunionActivityList extends AppCompatActivity implements Mareu.View
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Log.d("test", "test");
+
         switch (item.getItemId()) {
 
 
             case R.id.filter_button_date:
 
-                Log.d("date", "showdate");
+
                 showDateDialog();
                 return true;
 
             case R.id.filter_button_location:
 
-                Log.d("location", "showlocation");
+
                 showLocationDialog();
                 return true;
 

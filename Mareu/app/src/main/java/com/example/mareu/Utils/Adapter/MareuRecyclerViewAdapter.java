@@ -42,7 +42,7 @@ public class MareuRecyclerViewAdapter extends RecyclerView.Adapter<MareuRecycler
 
 
         Reunion reunion = mReunions.get(position);
-        Log.d("Test", "Location: " + reunion.getLocation());
+
 
         switch (reunion.getLocation()) {
 
@@ -63,6 +63,8 @@ public class MareuRecyclerViewAdapter extends RecyclerView.Adapter<MareuRecycler
                 break;
 
         }
+
+        holder.mDeleteView.setImageResource(R.drawable.ic_baseline_delete_24);
 
 
         holder.mSubjectView.setText(reunion.getSubject() + " -");
