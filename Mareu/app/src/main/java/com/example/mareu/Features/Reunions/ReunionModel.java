@@ -3,7 +3,6 @@ package com.example.mareu.Features.Reunions;
 import android.util.Log;
 
 import com.example.mareu.Model.Reunion;
-
 import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

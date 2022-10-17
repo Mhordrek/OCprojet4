@@ -2,23 +2,17 @@
 package com.example.mareu.Utils.Adapter;
 
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.example.mareu.Model.Reunion;
 import com.example.mareu.R;
 import com.example.mareu.Utils.Event.DeleteReunionEvent;
 import com.example.mareu.databinding.RowReunionBinding;
-
-
 import org.greenrobot.eventbus.EventBus;
-
 import java.util.List;
 
 public class MareuRecyclerViewAdapter extends RecyclerView.Adapter<MareuRecyclerViewAdapter.ViewHolder> {

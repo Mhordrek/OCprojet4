@@ -38,6 +38,8 @@
                   <entry key="Duration" value="90" />
                   <entry key="Pixel_2_API_21" value="120" />
                   <entry key="Tests" value="360" />
+                  <entry key="emulator-5556" value="120" />
+                  <entry key="unknown&#13;&#10; Android SDK built for x86_64" value="120" />
                 </map>
               </option>
             </AndroidTestResultsTableState>
@@ -65,6 +67,9 @@
                   <entry key="Duration" value="90" />
                   <entry key="Pixel_2_API_21" value="120" />
                   <entry key="Tests" value="360" />
+                  <entry key="emulator-5554" value="120" />
+                  <entry key="emulator-5556" value="120" />
+                  <entry key="unknown&#13;&#10; Android SDK built for x86_64" value="120" />
                 </map>
               </option>
             </AndroidTestResultsTableState>
@@ -78,6 +83,8 @@
                   <entry key="Duration" value="90" />
                   <entry key="Pixel_2_API_21" value="120" />
                   <entry key="Tests" value="360" />
+                  <entry key="emulator-5556" value="120" />
+                  <entry key="unknown&#13;&#10; Android SDK built for x86_64" value="120" />
                 </map>
               </option>
             </AndroidTestResultsTableState>

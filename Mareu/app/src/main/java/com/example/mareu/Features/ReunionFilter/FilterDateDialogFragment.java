@@ -1,6 +1,6 @@
 package com.example.mareu.Features.ReunionFilter;
 
-import android.content.Intent;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,16 +10,12 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.util.Pair;
 import androidx.fragment.app.DialogFragment;
-
 import com.example.mareu.Features.Reunions.ReunionActivityList;
 import com.example.mareu.Features.Reunions.ReunionModel;
 import com.example.mareu.Model.Reunion;
 import com.example.mareu.R;
-import com.example.mareu.Utils.Adapter.MareuRecyclerViewAdapter;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
 

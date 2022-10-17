@@ -9,12 +9,14 @@ import static androidx.test.espresso.action.ViewActions.replaceText;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.hasMinimumChildCount;
+import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
 
 import android.content.Context;
 import android.view.KeyEvent;
 
+import androidx.test.espresso.ViewAssertion;
 import androidx.test.espresso.contrib.RecyclerViewActions;
 import androidx.test.espresso.matcher.ViewMatchers;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
@@ -76,12 +78,16 @@ public class ReunionListTest {
     @Test
     public void myReunionsAddButtonShouldAddANewReunion(){
 
+        onView(ViewMatchers.withId(R.id.list)).check(withItemCount(10));
         onView(ViewMatchers.withId(R.id.floatingActionButton)).perform(click());
         onView(ViewMatchers.withId(R.id.rSubject)).perform(click());
         onView(ViewMatchers.withId(R.id.inputText)).perform(typeText("Reunion test"),pressImeActionButton());
         onView(ViewMatchers.withId(R.id.multiAutoCompleteTextView)).perform(click());
         onView(ViewMatchers.withId(R.id.multiAutoCompleteTextView)).perform(typeText("Amandine@lamzone.com"),pressImeActionButton());
         onView(ViewMatchers.withId(R.id.validationbutton)).perform(click());
+        onView(ViewMatchers.withId(R.id.validationbutton)).perform(click());
+        onView(ViewMatchers.withId(R.id.list)).check(withItemCount(11));
+
 
 
     }
@@ -89,11 +95,19 @@ public class ReunionListTest {
     @Test
     public void myReunionFilterDateButtonIsFilteringReunions(){
 
+        onView(ViewMatchers.withId(R.id.floatingActionButton)).perform(click());
+        onView(ViewMatchers.withId(R.id.rSubject)).perform(click());
+        onView(ViewMatchers.withId(R.id.inputText)).perform(typeText("Reunion test"),pressImeActionButton());
+        onView(ViewMatchers.withId(R.id.multiAutoCompleteTextView)).perform(click());
+        onView(ViewMatchers.withId(R.id.multiAutoCompleteTextView)).perform(typeText("Amandine@lamzone.com"),pressImeActionButton());
+        onView(ViewMatchers.withId(R.id.validationbutton)).perform(click());
+        onView(ViewMatchers.withId(R.id.validationbutton)).perform(click());
         openActionBarOverflowOrOptionsMenu(getInstrumentation().getTargetContext());
         onView(withText("Filtre par Date")).perform(click());
         onView(withText("CALENDRIER")).perform(click());
         onView(withText("SAVE")).perform(click());
         onView(withText("VALIDER")).perform(click());
+        onView(ViewMatchers.withId(R.id.list)).check(withItemCount(1));
 
     }
 

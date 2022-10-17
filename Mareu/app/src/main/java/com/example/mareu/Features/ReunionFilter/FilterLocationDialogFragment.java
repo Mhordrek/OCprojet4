@@ -7,16 +7,11 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-
 import androidx.fragment.app.DialogFragment;
-
 import com.example.mareu.Features.Reunions.ReunionActivityList;
 import com.example.mareu.Features.Reunions.ReunionModel;
 import com.example.mareu.Model.Reunion;
 import com.example.mareu.R;
-
-import org.greenrobot.eventbus.EventBus;
-
 import java.util.List;
 
 public class FilterLocationDialogFragment extends DialogFragment {
