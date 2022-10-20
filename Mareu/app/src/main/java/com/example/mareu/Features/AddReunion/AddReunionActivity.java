@@ -191,7 +191,7 @@ public class AddReunionActivity extends AppCompatActivity implements AddReu.View
         mTimePickerDialog.show();
     }
 
-    public void createNewReunion(){
+    public void createNewReunion() {
         Spinner spinner = findViewById(R.id.spinnerlocation);
         String rSubject = mSubject.getEditText().getText().toString();
         String rDate = dateButton.getText().toString();
@@ -206,25 +206,17 @@ public class AddReunionActivity extends AppCompatActivity implements AddReu.View
                 rLocation,
                 rSubject,
                 rAttendees);
+        
+                if (checkAllField()) {
 
-        //List<Reunion> reunions = mAddReunionPresenter.loadReunions();
+                    mAddReunionPresenter.addReunion(newReunion);
+                    Intent intent = new Intent(getApplicationContext(), ReunionActivityList.class);
+                    startActivity(intent);
 
-                /*for (Reunion reunion:reunions){
+                }
 
-                        if(reunion.getDate().equals(newReunion.getDate()) || reunion.getTime().equals(newReunion.getTime()) || reunion.getLocation().equals(newReunion.getLocation())){
-                            validationButton.setError("une reunion existe déja");
-                            Toast.makeText(getApplicationContext(), "Une reunion existe déja à cette heure", Toast.LENGTH_SHORT).show();
-                        }else{*/
-
-        if (checkAllField()) {
-
-            mAddReunionPresenter.addReunion(newReunion);
-            Intent intent = new Intent(getApplicationContext(), ReunionActivityList.class);
-            startActivity(intent);
-
-        }
-        //}
     }
+
 
 
     private boolean checkAllField() {
