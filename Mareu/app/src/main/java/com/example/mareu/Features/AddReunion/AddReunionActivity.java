@@ -73,11 +73,10 @@ public class AddReunionActivity extends AppCompatActivity implements AddReu.View
 
                 createNewReunion();
 
-                    }
-                });
+            }
+        });
 
-        }
-
+    }
 
 
     private String getTodayDate() {
@@ -89,11 +88,11 @@ public class AddReunionActivity extends AppCompatActivity implements AddReu.View
         return makeDateString(day, month, year);
     }
 
-    private String getTodayTime(){
+    private String getTodayTime() {
         Calendar cal = Calendar.getInstance();
         int hour = cal.get(Calendar.HOUR_OF_DAY);
         int minute = cal.get(Calendar.MINUTE);
-        return makeTimeString(hour,minute);
+        return makeTimeString(hour, minute);
 
     }
 
@@ -118,11 +117,11 @@ public class AddReunionActivity extends AppCompatActivity implements AddReu.View
         mDatePickerDialog = new DatePickerDialog(this, style, dateSetListener, year, month, day);
     }
 
-    private void initTimePicker(){
+    private void initTimePicker() {
         TimePickerDialog.OnTimeSetListener timeSetListener = new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker timePicker, int hour, int minute) {
-                String time = makeTimeString(hour,minute);
+                String time = makeTimeString(hour, minute);
                 timeButton.setText(time);
             }
         };
@@ -140,11 +139,11 @@ public class AddReunionActivity extends AppCompatActivity implements AddReu.View
 
     }
 
-    private String makeTimeString(int hour, int minute){
-        if(minute<10){
-            return hour + "H" + "0"+minute;
+    private String makeTimeString(int hour, int minute) {
+        if (minute < 10) {
+            return hour + "H" + "0" + minute;
 
-        }else{
+        } else {
 
             return hour + "H" + minute;
         }
@@ -206,17 +205,16 @@ public class AddReunionActivity extends AppCompatActivity implements AddReu.View
                 rLocation,
                 rSubject,
                 rAttendees);
-        
-                if (checkAllField()) {
 
-                    mAddReunionPresenter.addReunion(newReunion);
-                    Intent intent = new Intent(getApplicationContext(), ReunionActivityList.class);
-                    startActivity(intent);
+        if (checkAllField()) {
 
-                }
+            mAddReunionPresenter.addReunion(newReunion);
+            Intent intent = new Intent(getApplicationContext(), ReunionActivityList.class);
+            startActivity(intent);
+
+        }
 
     }
-
 
 
     private boolean checkAllField() {

@@ -6,5 +6,8 @@
         <item>Peach</item>
         <item>Browser</item>
     </string-array>
+    <color name="SkyBlue">#87CEEB</color>
+    <color name="Blue">#4E92DF</color>
+
 
 </resources>

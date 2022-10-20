@@ -34,7 +34,7 @@ public class ReunionPresenter implements Mareu.Presenter {
 
     @Override
     public List<Reunion> filterDate(Long starDate, Long endDate) {
-        return ReunionModel.getInstance().filterDateReunions(starDate,endDate);
+        return ReunionModel.getInstance().filterDateReunions(starDate, endDate);
     }
 
 

@@ -2,17 +2,21 @@
 package com.example.mareu.Utils.Adapter;
 
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.example.mareu.Model.Reunion;
 import com.example.mareu.R;
 import com.example.mareu.Utils.Event.DeleteReunionEvent;
 import com.example.mareu.databinding.RowReunionBinding;
+
 import org.greenrobot.eventbus.EventBus;
+
 import java.util.List;
 
 public class MareuRecyclerViewAdapter extends RecyclerView.Adapter<MareuRecyclerViewAdapter.ViewHolder> {
@@ -63,7 +67,7 @@ public class MareuRecyclerViewAdapter extends RecyclerView.Adapter<MareuRecycler
 
         holder.mSubjectView.setText(reunion.getSubject() + " -");
         holder.mDateView.setText(reunion.getDate() + " -");
-        holder.mTimeView.setText(reunion.getTime());
+        holder.mTimeView.setText(reunion.getTime() + " -");
         holder.mLocationView.setText(reunion.getLocation());
         holder.mAttendeesView.setText(reunion.getAttendees());
         holder.mDeleteView.setOnClickListener(new View.OnClickListener() {

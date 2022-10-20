@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+
 import com.example.mareu.Features.AddReunion.AddReunionActivity;
 import com.example.mareu.Features.ReunionFilter.FilterDateDialogFragment;
 import com.example.mareu.Features.ReunionFilter.FilterLocationDialogFragment;
@@ -21,8 +23,10 @@ import com.example.mareu.Utils.Adapter.MareuRecyclerViewAdapter;
 import com.example.mareu.Model.Reunion;
 import com.example.mareu.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
+
 import java.util.List;
 
 public class ReunionActivityList extends AppCompatActivity implements Mareu.View {
@@ -71,13 +75,13 @@ public class ReunionActivityList extends AppCompatActivity implements Mareu.View
 
     @Override
     public void filterLocation(String location) {
-        List<Reunion> reunions =  mPresenter.filterLocation(location);
+        List<Reunion> reunions = mPresenter.filterLocation(location);
         showReunions(reunions);
     }
 
     @Override
     public void filterDate(Long startDate, Long endDate) {
-        List<Reunion> reunions = mPresenter.filterDate(startDate,endDate);
+        List<Reunion> reunions = mPresenter.filterDate(startDate, endDate);
         showReunions(reunions);
     }
 

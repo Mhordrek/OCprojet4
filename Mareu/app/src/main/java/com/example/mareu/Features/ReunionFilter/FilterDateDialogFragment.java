@@ -10,8 +10,10 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
 import androidx.core.util.Pair;
 import androidx.fragment.app.DialogFragment;
+
 import com.example.mareu.Features.Reunions.ReunionActivityList;
 import com.example.mareu.Features.Reunions.ReunionModel;
 import com.example.mareu.Model.Reunion;
@@ -102,7 +104,7 @@ public class FilterDateDialogFragment extends DialogFragment {
                         validation.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                ((ReunionActivityList) getActivity()).filterDate(startDate,endDate);
+                                ((ReunionActivityList) getActivity()).filterDate(startDate, endDate);
                                 getDialog().dismiss();
                             }
                         });

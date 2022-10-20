@@ -7,11 +7,14 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+
 import androidx.fragment.app.DialogFragment;
+
 import com.example.mareu.Features.Reunions.ReunionActivityList;
 import com.example.mareu.Features.Reunions.ReunionModel;
 import com.example.mareu.Model.Reunion;
 import com.example.mareu.R;
+
 import java.util.List;
 
 public class FilterLocationDialogFragment extends DialogFragment {
@@ -24,7 +27,6 @@ public class FilterLocationDialogFragment extends DialogFragment {
     private Button mLocationAll;
 
 
-
     public FilterLocationDialogFragment() {
 
         // Empty constructor is required for DialogFragment
@@ -34,7 +36,6 @@ public class FilterLocationDialogFragment extends DialogFragment {
         // Use `newInstance` instead as shown below
 
     }
-
 
 
     public static FilterLocationDialogFragment newInstance(String title) {
@@ -52,7 +53,6 @@ public class FilterLocationDialogFragment extends DialogFragment {
     }
 
 
-
     @Override
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -62,7 +62,6 @@ public class FilterLocationDialogFragment extends DialogFragment {
         return inflater.inflate(R.layout.location_filter_dialog, container);
 
     }
-
 
 
     @Override
@@ -130,7 +129,7 @@ public class FilterLocationDialogFragment extends DialogFragment {
             public void onClick(View view) {
 
 
-               List<Reunion> reunions = ReunionModel.getInstance().getReunions();
+                List<Reunion> reunions = ReunionModel.getInstance().getReunions();
                 ((ReunionActivityList) getActivity()).showReunions(reunions);
                 getDialog().dismiss();
 
