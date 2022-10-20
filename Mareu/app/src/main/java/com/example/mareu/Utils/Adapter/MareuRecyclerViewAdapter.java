@@ -63,6 +63,7 @@ public class MareuRecyclerViewAdapter extends RecyclerView.Adapter<MareuRecycler
 
         holder.mSubjectView.setText(reunion.getSubject() + " -");
         holder.mDateView.setText(reunion.getDate() + " -");
+        holder.mTimeView.setText(reunion.getTime());
         holder.mLocationView.setText(reunion.getLocation());
         holder.mAttendeesView.setText(reunion.getAttendees());
         holder.mDeleteView.setOnClickListener(new View.OnClickListener() {
@@ -89,6 +90,7 @@ public class MareuRecyclerViewAdapter extends RecyclerView.Adapter<MareuRecycler
         public final ImageView mAvatarView;
         public final TextView mSubjectView;
         private final TextView mDateView;
+        private final TextView mTimeView;
         private final TextView mLocationView;
         private final TextView mAttendeesView;
         public final ImageButton mDeleteView;
@@ -100,6 +102,7 @@ public class MareuRecyclerViewAdapter extends RecyclerView.Adapter<MareuRecycler
             mAvatarView = binding.itemListAvatar;
             mSubjectView = binding.itemListReunion;
             mDateView = binding.itemListDate;
+            mTimeView = binding.itemListTime;
             mLocationView = binding.itemListLocation;
             mAttendeesView = binding.itemListAttendees;
             mDeleteView = binding.itemListDeleteButton;

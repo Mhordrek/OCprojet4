@@ -13,6 +13,7 @@ public interface Mareu {
         void filterLocation(String location);
         void filterDate(Long startDate,Long endDate);
 
+
     }
 
     interface Model extends Mvp.Model{

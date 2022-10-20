@@ -6,6 +6,8 @@ public class Reunion {
 
     private String date;
 
+    private String time;
+
     private String location;
 
     private String subject;
@@ -13,13 +15,15 @@ public class Reunion {
     private String attendees;
 
 
-    public Reunion(int id, String date, String location, String subject, String attendees) {
+    public Reunion(int id, String date, String time, String location, String subject, String attendees) {
         this.id = id;
         this.date = date;
+        this.time = time;
         this.location = location;
         this.subject = subject;
         this.attendees = attendees;
     }
+
 
     public int getId() {
         return id;
@@ -27,6 +31,10 @@ public class Reunion {
 
     public String getDate() {
         return date;
+    }
+
+    public String getTime() {
+        return time;
     }
 
     public String getLocation() {
@@ -48,6 +56,8 @@ public class Reunion {
     public void setDate(String time) {
         this.date = date;
     }
+
+    public void setTime(String time) { this.time = time; }
 
     public void setLocation(String location) {
         this.location = location;

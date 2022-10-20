@@ -32,10 +32,7 @@ import java.util.List;
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
 public class ReunionUnitTest {
-
-    ReunionModel mReunionModel;
-
-
+    
 
     @Test
     public void getReunionsWithSuccess() {
@@ -59,7 +56,7 @@ public class ReunionUnitTest {
 
    @Test
     public void AddReunionWithSuccess() {
-        Reunion reunion = new Reunion(11, "SEP 02 2022", "Mario", "Reunion d'information", "alain@lamzone.com");
+        Reunion reunion = new Reunion(11, "SEP 02 2022","14h30", "Mario", "Reunion d'information", "alain@lamzone.com");
         ReunionModel.getInstance().addReunion(reunion);
         assertTrue(ReunionModel.getInstance().getReunions().contains(reunion));
 
@@ -69,7 +66,7 @@ public class ReunionUnitTest {
     public void filterReunionLocation() {
         // il y a par défaut 2 réunions dont la location est Luigi dans notre liste
 
-        Reunion reunion = new Reunion(12,"SEP 21 2022","Luigi","Réunion test","herve@lamzone.com");
+        Reunion reunion = new Reunion(12,"SEP 21 2022","14h30","Luigi","Réunion test","herve@lamzone.com");
         ReunionModel.getInstance().addReunion(reunion);
         assertTrue(ReunionModel.getInstance().getReunions().contains(reunion));
         List<Reunion> filteredLocationReunion = ReunionModel.getInstance().filterReunions("Luigi");
@@ -93,7 +90,7 @@ public class ReunionUnitTest {
         long endDate = 1662854400000L;
 
 
-        Reunion reunion = new Reunion(13,"SEP 10 2022","Browser","Réunion evaluation","thierry@lamzone.com");
+        Reunion reunion = new Reunion(13,"SEP 10 2022","14h30","Browser","Réunion evaluation","thierry@lamzone.com");
         ReunionModel.getInstance().addReunion(reunion);
         List<Reunion> filteredDateReunion = ReunionModel.getInstance().filterDateReunions(startDate,endDate);
         for(Reunion r:filteredDateReunion){

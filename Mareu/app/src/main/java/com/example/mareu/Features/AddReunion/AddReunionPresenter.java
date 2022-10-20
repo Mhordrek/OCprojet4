@@ -8,26 +8,17 @@ import java.util.List;
 
 public class AddReunionPresenter implements AddReu.Presenter{
 
-    private AddReu.View mAddReunionView;
+    private AddReu.View AddReunionView;
 
     public AddReunionPresenter(AddReu.View mAddReunionView) {
         attachView(mAddReunionView);
     }
 
+    @Override
+    public void attachView(AddReu.View view) { AddReunionView = view;}
 
     @Override
-    public void attachView(AddReu.View view) {
-
-        mAddReunionView = view;
-
-
-    }
-
-    @Override
-    public void addReunion(Reunion reunion) {
-
-        ReunionModel.getInstance().addReunion(reunion);
-    }
+    public void addReunion(Reunion reunion) { ReunionModel.getInstance().addReunion(reunion);}
 
     @Override
     public List<Reunion> loadReunions() {

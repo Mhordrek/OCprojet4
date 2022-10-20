@@ -19,106 +19,130 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:title="Maréu" />
 
-
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="18dp"
-        android:layout_marginEnd="17dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        android:layout_height="match_parent">
 
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/rSubject"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="100dp">
+            android:layout_height="match_parent"
+            android:layout_marginStart="18dp"
+            android:layout_marginEnd="17dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/inputText"
-                android:inputType="text"
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/rSubject"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="100dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputText"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:hint="Sujet"
+                    android:imeOptions="actionDone"
+                    android:inputType="text"
+                    android:singleLine="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/textviewdatepicker"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="40dp"
+                android:text="Choisissez une date"
+                android:textSize="20sp"
+
+                />
+
+            <Button
+                android:id="@+id/dateSpinnerButton"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:onClick="openDatePicker"
+                android:paddingLeft="30dp"
+                android:text="Jan 01 2022"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/textviewtimepicker"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="40dp"
+                android:text="Choisissez une heure"
+                android:textSize="20sp"
+
+                />
+
+            <Button
+                android:id="@+id/timeSpinnerButton"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:onClick="openTimePicker"
+                android:paddingLeft="30dp"
+                android:text="14H20"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/textviewspinner"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="40dp"
+                android:text="Choisissez une salle"
+                android:textSize="20sp"
+
+                />
+
+            <Spinner
+                android:id="@+id/spinnerlocation"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+
+
+                />
+
+            <TextView
+                android:id="@+id/textviewattendees"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="40dp"
+                android:text="Participant(s)"
+                android:textSize="20sp"
+
+                />
+
+            <MultiAutoCompleteTextView
+                android:id="@+id/multiAutoCompleteTextView"
+                android:layout_width="match_parent"
+                android:layout_height="51dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
                 android:imeOptions="actionDone"
                 android:singleLine="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+            <Button
+                android:id="@+id/validationbutton"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:hint="Sujet" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Valider" />
 
-        <TextView
-            android:id="@+id/textviewdatepicker"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="40dp"
-            android:text="Choisissez une date"
-            android:textSize="20sp"
-
-            ></TextView>
-
-        <Button
-            android:id="@+id/datespinnerbutton"
-            android:layout_width="250dp"
-            android:layout_height="50dp"
-            android:onClick="openDatePicker"
-            android:paddingLeft="30dp"
-            android:text="Jan 01 2022"
-            android:textSize="20sp"></Button>
-
-        <TextView
-            android:id="@+id/textviewspinner"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="40dp"
-            android:text="Choisissez une salle"
-            android:textSize="20sp"
-
-            ></TextView>
-
-        <Spinner
-            android:id="@+id/spinnerlocation"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-
-
-            />
-
-        <TextView
-            android:id="@+id/textviewattendees"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="40dp"
-            android:text="Participant(s)"
-            android:textSize="20sp"
-
-            ></TextView>
-
-        <MultiAutoCompleteTextView
-            android:id="@+id/multiAutoCompleteTextView"
-            android:layout_width="match_parent"
-            android:layout_height="51dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:imeOptions="actionDone"
-            android:singleLine="true"
-            app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-        <Button
-            android:id="@+id/validationbutton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Valider" />
-
-    </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

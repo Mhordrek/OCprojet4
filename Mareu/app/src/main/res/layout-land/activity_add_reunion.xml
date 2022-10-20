@@ -51,7 +51,7 @@
                 android:text="Choisissez une date"
                 android:textSize="20sp"
 
-                ></TextView>
+                />
 
             <Button
                 android:id="@+id/datespinnerbutton"
@@ -60,17 +60,36 @@
                 android:onClick="openDatePicker"
                 android:paddingLeft="30dp"
                 android:text="Jan 01 2022"
-                android:textSize="20sp"></Button>
+                android:textSize="20sp"/>
 
             <TextView
                 android:id="@+id/textviewspinner"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="40dp"
+                android:text="Choisissez une heure"
+                android:textSize="20sp"
+
+                />
+
+            <Button
+                android:id="@+id/timespinnerbutton"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:onClick="openTimePicker"
+                android:paddingLeft="30dp"
+                android:text="14H30"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/textviewspinnertime"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="40dp"
                 android:text="Choisissez une salle"
                 android:textSize="20sp"
 
-                ></TextView>
+                />
 
             <Spinner
                 android:id="@+id/spinnerlocation"
@@ -88,7 +107,7 @@
                 android:text="Participant(s)"
                 android:textSize="20sp"
 
-                ></TextView>
+                />
 
             <MultiAutoCompleteTextView
                 android:id="@+id/multiAutoCompleteTextView"
