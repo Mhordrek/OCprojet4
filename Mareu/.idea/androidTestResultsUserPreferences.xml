@@ -3,6 +3,20 @@
   <component name="AndroidTestResultsUserPreferences">
     <option name="androidTestResultsTableState">
       <map>
+        <entry key="-2079216791">
+          <value>
+            <AndroidTestResultsTableState>
+              <option name="preferredColumnWidths">
+                <map>
+                  <entry key="Duration" value="90" />
+                  <entry key="Tests" value="360" />
+                  <entry key="emulator-5556" value="120" />
+                  <entry key="unknown&#13;&#10; Android SDK built for x86_64" value="120" />
+                </map>
+              </option>
+            </AndroidTestResultsTableState>
+          </value>
+        </entry>
         <entry key="-1848976686">
           <value>
             <AndroidTestResultsTableState>
@@ -11,6 +25,8 @@
                   <entry key="Duration" value="90" />
                   <entry key="Pixel_2_API_21" value="120" />
                   <entry key="Tests" value="360" />
+                  <entry key="emulator-5556" value="120" />
+                  <entry key="unknown&#13;&#10; Android SDK built for x86_64" value="120" />
                 </map>
               </option>
             </AndroidTestResultsTableState>
@@ -25,6 +41,8 @@
                   <entry key="Pixel_2_API_21" value="120" />
                   <entry key="Tests" value="360" />
                   <entry key="emulator-5554" value="120" />
+                  <entry key="emulator-5556" value="120" />
+                  <entry key="unknown&#13;&#10; Android SDK built for x86_64" value="120" />
                 </map>
               </option>
             </AndroidTestResultsTableState>
@@ -37,6 +55,34 @@
                 <map>
                   <entry key="Duration" value="90" />
                   <entry key="Pixel_2_API_21" value="120" />
+                  <entry key="Tests" value="360" />
+                  <entry key="emulator-5556" value="120" />
+                  <entry key="unknown&#13;&#10; Android SDK built for x86_64" value="120" />
+                </map>
+              </option>
+            </AndroidTestResultsTableState>
+          </value>
+        </entry>
+        <entry key="-807301912">
+          <value>
+            <AndroidTestResultsTableState>
+              <option name="preferredColumnWidths">
+                <map>
+                  <entry key="Duration" value="90" />
+                  <entry key="Tests" value="360" />
+                  <entry key="emulator-5556" value="120" />
+                  <entry key="unknown&#13;&#10; Android SDK built for x86_64" value="120" />
+                </map>
+              </option>
+            </AndroidTestResultsTableState>
+          </value>
+        </entry>
+        <entry key="-683228665">
+          <value>
+            <AndroidTestResultsTableState>
+              <option name="preferredColumnWidths">
+                <map>
+                  <entry key="Duration" value="90" />
                   <entry key="Tests" value="360" />
                   <entry key="emulator-5556" value="120" />
                   <entry key="unknown&#13;&#10; Android SDK built for x86_64" value="120" />
@@ -61,6 +107,20 @@
             </AndroidTestResultsTableState>
           </value>
         </entry>
+        <entry key="-429550106">
+          <value>
+            <AndroidTestResultsTableState>
+              <option name="preferredColumnWidths">
+                <map>
+                  <entry key="Duration" value="90" />
+                  <entry key="Tests" value="360" />
+                  <entry key="emulator-5556" value="120" />
+                  <entry key="unknown&#13;&#10; Android SDK built for x86_64" value="120" />
+                </map>
+              </option>
+            </AndroidTestResultsTableState>
+          </value>
+        </entry>
         <entry key="-98047490">
           <value>
             <AndroidTestResultsTableState>
@@ -70,6 +130,20 @@
                   <entry key="Pixel_2_API_21" value="120" />
                   <entry key="Tests" value="360" />
                   <entry key="emulator-5554" value="120" />
+                  <entry key="emulator-5556" value="120" />
+                  <entry key="unknown&#13;&#10; Android SDK built for x86_64" value="120" />
+                </map>
+              </option>
+            </AndroidTestResultsTableState>
+          </value>
+        </entry>
+        <entry key="104460136">
+          <value>
+            <AndroidTestResultsTableState>
+              <option name="preferredColumnWidths">
+                <map>
+                  <entry key="Duration" value="90" />
+                  <entry key="Tests" value="360" />
                   <entry key="emulator-5556" value="120" />
                   <entry key="unknown&#13;&#10; Android SDK built for x86_64" value="120" />
                 </map>
@@ -99,6 +173,20 @@
                 <map>
                   <entry key="Duration" value="90" />
                   <entry key="Pixel_2_API_21" value="120" />
+                  <entry key="Tests" value="360" />
+                  <entry key="emulator-5556" value="120" />
+                  <entry key="unknown&#13;&#10; Android SDK built for x86_64" value="120" />
+                </map>
+              </option>
+            </AndroidTestResultsTableState>
+          </value>
+        </entry>
+        <entry key="2111778233">
+          <value>
+            <AndroidTestResultsTableState>
+              <option name="preferredColumnWidths">
+                <map>
+                  <entry key="Duration" value="90" />
                   <entry key="Tests" value="360" />
                   <entry key="emulator-5556" value="120" />
                   <entry key="unknown&#13;&#10; Android SDK built for x86_64" value="120" />

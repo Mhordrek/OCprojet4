@@ -25,9 +25,11 @@ import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
 import org.junit.Before;
+import org.junit.FixMethodOrder;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
 
 
 import static com.example.mareu.utils.RecyclerViewItemCountAssertion.withItemCount;
@@ -46,6 +48,7 @@ import com.example.mareu.utils.DeleteViewAction;
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
 @RunWith(AndroidJUnit4.class)
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ReunionListTest {
 
 
@@ -55,29 +58,20 @@ public class ReunionListTest {
             new ActivityScenarioRule<>(ReunionActivityList.class);
 
 
-
     @Test
-    public void useAppContext() {
+    public void test01_useAppContext() {
         // Context of the app under test.
         Context appContext = getInstrumentation().getTargetContext();
         assertEquals("com.example.mareu", appContext.getPackageName());
     }
 
     @Test
-    public void myReunionsListShouldNotBeEmpty(){
+    public void test02_myReunionsListShouldNotBeEmpty(){
         onView(ViewMatchers.withId(R.id.list)).check(matches(hasMinimumChildCount(1)));
     }
 
     @Test
-    public void myReunionsListShouldRemoveItem(){
-
-        onView(ViewMatchers.withId(R.id.list)).check(withItemCount(11));
-        onView(ViewMatchers.withId(R.id.list)).perform(RecyclerViewActions.actionOnItemAtPosition(0, new DeleteViewAction()));
-        onView(ViewMatchers.withId(R.id.list)).check(withItemCount(10));
-    }
-
-    @Test
-    public void myReunionsAddButtonShouldAddANewReunion(){
+    public void test03_myReunionsAddButtonShouldAddANewReunion(){
 
         onView(ViewMatchers.withId(R.id.list)).check(withItemCount(10));
         onView(ViewMatchers.withId(R.id.floatingActionButton)).perform(click());
@@ -88,13 +82,22 @@ public class ReunionListTest {
         onView(ViewMatchers.withId(R.id.validationbutton)).perform(scrollTo(),click());
         onView(ViewMatchers.withId(R.id.validationbutton)).perform(click());
         onView(ViewMatchers.withId(R.id.list)).check(withItemCount(11));
-
-
-
+        onView(ViewMatchers.withId(R.id.list)).perform(RecyclerViewActions.actionOnItemAtPosition(10, new DeleteViewAction()));
+        
     }
 
     @Test
-    public void myReunionFilterDateButtonIsFilteringReunions(){
+    public void test04_myReunionsListShouldRemoveItem(){
+
+        onView(ViewMatchers.withId(R.id.list)).check(withItemCount(10));
+        onView(ViewMatchers.withId(R.id.list)).perform(RecyclerViewActions.actionOnItemAtPosition(0, new DeleteViewAction()));
+        onView(ViewMatchers.withId(R.id.list)).check(withItemCount(9));
+    }
+
+
+
+    @Test
+    public void test05_myReunionFilterDateButtonIsFilteringReunions(){
 
         onView(ViewMatchers.withId(R.id.floatingActionButton)).perform(click());
         onView(ViewMatchers.withId(R.id.rSubject)).perform(click());
@@ -108,17 +111,17 @@ public class ReunionListTest {
         onView(withText("CALENDRIER")).perform(click());
         onView(withText("SAVE")).perform(click());
         onView(withText("VALIDER")).perform(click());
-        onView(ViewMatchers.withId(R.id.list)).check(withItemCount(2));
+        onView(ViewMatchers.withId(R.id.list)).check(withItemCount(1));
 
     }
 
     @Test
-    public void myReunionFilterLocationButtonIsFilteringReunion(){
+    public void test06_myReunionFilterLocationButtonIsFilteringReunion(){
 
         openActionBarOverflowOrOptionsMenu(getInstrumentation().getTargetContext());
         onView(withText("Filtre par Salle")).perform(click());
-        onView(withText("MARIO")).perform(click());
-        onView(ViewMatchers.withId(R.id.list)).check(withItemCount(5));
+        onView(withText("LUIGI")).perform(click());
+        onView(ViewMatchers.withId(R.id.list)).check(withItemCount(2));
 
 
     }

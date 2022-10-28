@@ -19,7 +19,7 @@ import java.util.List;
 
 public class FilterLocationDialogFragment extends DialogFragment {
 
-    private EditText mEditText;
+
     private Button mLocationMario;
     private Button mLocationLuigi;
     private Button mLocationPeach;
