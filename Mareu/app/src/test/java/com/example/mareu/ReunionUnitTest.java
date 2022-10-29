@@ -47,7 +47,7 @@ public class ReunionUnitTest {
     }
 
     @Test
-    public void DeleteReunionWithSuccess() {
+    public void deleteReunionWithSuccess() {
         Reunion reunionToDelete = ReunionModel.getInstance().getReunions().get(0);
         ReunionModel.getInstance().removeReunion(reunionToDelete);
         assertFalse(ReunionModel.getInstance().getReunions().contains(reunionToDelete));
@@ -55,7 +55,7 @@ public class ReunionUnitTest {
     }
 
    @Test
-    public void AddReunionWithSuccess() {
+    public void addReunionWithSuccess() {
         Reunion reunion = new Reunion(11, "SEP 02 2022","14h30", "Mario", "Reunion d'information", "alain@lamzone.com");
         ReunionModel.getInstance().addReunion(reunion);
         assertTrue(ReunionModel.getInstance().getReunions().contains(reunion));

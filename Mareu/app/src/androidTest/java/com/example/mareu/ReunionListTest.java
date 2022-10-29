@@ -83,7 +83,7 @@ public class ReunionListTest {
         onView(ViewMatchers.withId(R.id.validationbutton)).perform(click());
         onView(ViewMatchers.withId(R.id.list)).check(withItemCount(11));
         onView(ViewMatchers.withId(R.id.list)).perform(RecyclerViewActions.actionOnItemAtPosition(10, new DeleteViewAction()));
-        
+
     }
 
     @Test
@@ -93,8 +93,6 @@ public class ReunionListTest {
         onView(ViewMatchers.withId(R.id.list)).perform(RecyclerViewActions.actionOnItemAtPosition(0, new DeleteViewAction()));
         onView(ViewMatchers.withId(R.id.list)).check(withItemCount(9));
     }
-
-
 
     @Test
     public void test05_myReunionFilterDateButtonIsFilteringReunions(){
@@ -116,7 +114,7 @@ public class ReunionListTest {
     }
 
     @Test
-    public void test06_myReunionFilterLocationButtonIsFilteringReunion(){
+    public void test06_myReunionFilterLocationButtonIsFilteringReunions(){
 
         openActionBarOverflowOrOptionsMenu(getInstrumentation().getTargetContext());
         onView(withText("Filtre par Salle")).perform(click());

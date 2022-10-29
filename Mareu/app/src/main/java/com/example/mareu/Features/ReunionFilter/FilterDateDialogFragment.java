@@ -25,7 +25,7 @@ import java.util.List;
 
 public class FilterDateDialogFragment extends DialogFragment {
 
-    private EditText mEditText;
+   
     private TextView dateText;
     private Button calendar;
     private Button validation;
